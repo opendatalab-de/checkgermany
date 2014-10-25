@@ -8,20 +8,17 @@
  */
 var http = require('http');
 var mongoose = require('mongoose');
+var express = require('express');
+var app = express();
 
 /**
  * TODO Build up the url with given parameters
  */
 var url = 'http://api.regenesis.pudo.org/cube/';
 
-tc = '71231gj001';
-y = '2008';
-
-var createURL = function(tc, y, rs, fn){
-   url += tc + '/' + 'aggregate?cut=jahr.text:' + y;
+var createUrl = function(tc, y){
+    url += tc + '/' + 'aggregate?cut=jahr.text:' + y;
 };
-
-http://api.regenesis.pudo.org/cube/71231gj001/aggregate?cut=jahr.text:2008&drilldown=gemein
 
 /**
  * TODO Connecting with mongoDB
@@ -33,25 +30,40 @@ else
     console.log('not connected');
 
 /**
- * Get data from regenesis server
-*/
-
-http.get(url, function(res) {
-    var body = '';
-    res.on('data', function(chunk) {
-        body += chunk;
-    });
-
-    res.on('end', function() {
-       var response = JSON.parse(body);
-        console.log("Got response: ", response);
-    });
-}).on('error', function(e) {
-    console.log("Got error: ", e);
-});
+ * Call function creatUrl to edit the data request of regenesis
+ */
 
 /**
- * TODO Creating an JSON Object of data
+ * TODO Get data from regenesis server
+*/
+app.get('/data', function(req, res){
+    console.log(req);
+
+    var tableString = req.query.table;
+    var year = req.query.year;
+
+    createUrl(tableString, year);
+
+    http.get(url, function(resolution) {
+        var body = '';
+        resolution.on('data', function(chunk) {
+            body += chunk;
+        });
+
+        resolution.on('end', function() {
+            var response = JSON.parse(body);
+            console.log("Got response: ", response);
+        });
+    }).on('error', function(e) {
+        console.log("Got error: ", e);
+    });
+});
+
+app.listen(8080);
+
+
+/**
+ * TODO Get parameter from front
  */
 
 
@@ -76,4 +88,3 @@ http.get(url, function(res) {
 // */
 //var Cat = mongoose.model('Cat', { name: String });
 //// TODO erstelle tabelle für daten;
-
