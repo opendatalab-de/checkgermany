@@ -1,0 +1,12 @@
+*.project
+*.classpath
+*.settings
+*.springBeans
+.idea
+target
+bin
+bower_components
+dist
+node_modules
+coverage
+test-results.xml
