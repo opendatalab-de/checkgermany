@@ -3,4 +3,13 @@ a {
 }
 .jumbotron {
   background-color: #232628;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.dropdownfield {
+  padding: 3%;
+  background-color: #798189;
+  float: left;
+  font-family: 'Roboto', sans-serif;
+  height: 25vh;
 }
