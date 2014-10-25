@@ -36,7 +36,7 @@ else
 /**
  * TODO Get data from regenesis server
  * TODO Filter data with parameters
- * TODO Create new object with reduced datas
+ * TODO Create new object with reduced data
 */
 app.get('/data', function(req, res){
     console.log(req);
