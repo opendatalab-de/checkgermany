@@ -17,7 +17,7 @@ var app = express();
 var url = 'http://api.regenesis.pudo.org/cube/';
 
 var createUrl = function(tc, y){
-    url += tc + '/' + 'aggregate?cut=jahr.text:' + y;
+    url += tc + '/' + 'aggregate?cut=jahr.text:' + y + '&drilldown=gemein';
 };
 
 /**
@@ -35,12 +35,15 @@ else
 
 /**
  * TODO Get data from regenesis server
+ * TODO Filter data with parameters
+ * TODO Create new object with reduced datas
 */
 app.get('/data', function(req, res){
     console.log(req);
 
     var tableString = req.query.table;
     var year = req.query.year;
+    var filter = req.query.fieldName;
 
     createUrl(tableString, year);
 
@@ -49,10 +52,21 @@ app.get('/data', function(req, res){
         resolution.on('data', function(chunk) {
             body += chunk;
         });
-
+        console.log(url);
         resolution.on('end', function() {
             var response = JSON.parse(body);
-            console.log("Got response: ", response);
+            var convResult =[];
+            response.cells.forEach(function(entry) {
+                var entryOfResult = {
+                    'id': entry['gemein.label'],
+                    'rs': entry['gemein.name']
+                };
+                entryOfResult[filter] = entry[filter];
+                convResult.push(entryOfResult);
+            });
+            console.log(convResult);
+
+        //console.log("Got response: ", response);
         });
     }).on('error', function(e) {
         console.log("Got error: ", e);
@@ -60,31 +74,3 @@ app.get('/data', function(req, res){
 });
 
 app.listen(8080);
-
-
-/**
- * TODO Get parameter from front
- */
-
-
-///**
-// * TODO Save data set into table
-// */
-//var kitty = new Cat({ name: 'Zildjian' });
-//kitty.save(function (err) {
-//    if (err) // ...
-//        console.log('meow');
-//});
-////TODO solange daten in datenset; sichere diese in datenbank
-//
-///**
-// * Update data set in table
-// */
-//
-//// TODO prüfe ob daten aktuell; wenn nicht aktualisiere diese
-//
-///**
-// * Create table for data
-// */
-//var Cat = mongoose.model('Cat', { name: String });
-//// TODO erstelle tabelle für daten;
