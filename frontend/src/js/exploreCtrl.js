@@ -4,7 +4,6 @@
         $scope.selection = {
             topic: null,
             field: null,
-            year: null,
             areaCode: null
         };
     });
