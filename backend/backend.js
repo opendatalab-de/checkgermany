@@ -12,15 +12,6 @@ var express = require('express');
 var app = express();
 
 /**
- * TODO Build up the url with given parameters
- */
-var url = 'http://api.regenesis.pudo.org/cube/';
-
-var createUrl = function(tc, y){
-    url += tc + '/' + 'aggregate?cut=jahr.text:' + y + '&drilldown=gemein';
-};
-
-/**
  * TODO Connecting with mongoDB
  */
 var connect = mongoose.connect('mongodb://localhost/checkgermany');
@@ -30,8 +21,24 @@ else
     console.log('not connected');
 
 /**
- * Call function creatUrl to edit the data request of regenesis
+ * TODO Build up the url with given parameters
  */
+var url = 'http://api.regenesis.pudo.org/cube/';
+
+var createUrl = function(tc, y){
+    url += tc + '/' + 'aggregate?cut=jahr.text:' + y + '&drilldown=gemein';
+};
+
+/**
+ * TODO Build the embeded code
+ */
+var createEmebededCode = function(url){
+    var embeded = new Element('iframe', {
+        'width': '100%',
+        'src': url
+    });
+  return embeded;
+};
 
 /**
  * TODO Get data from regenesis server
