@@ -77,8 +77,9 @@
 
             var customLayer = L.geoJson(null, {
                 style: {
-                    'opacity': 0.8,
-                    'weight': 1
+                    'opacity': 0.7,
+                    'weight': 1,
+                    'color': '#AAA'
                 },
                 onEachFeature: function (feature, layer) {
                     var rs = feature.properties['RS'];
