@@ -52,8 +52,11 @@
         })
     };
 
-    var getCubeData = function (cubeConfig, cubeFilter, $http) {
-        if (!cubeConfig.year || !cubeConfig.measure || !cubeFilter.level) return false;
+    var fillCubeData = function (cubeHolder, cubeConfig, cubeFilter, $http) {
+        if (!cubeConfig.year || !cubeConfig.measure || !cubeFilter.level) {
+            cubeHolder.data = null;
+            return null;
+        }
         var matchingCubes = cubeConfig.year.cubes.filter(function (cube) {
             var matchingMeasures = cube.measures.filter(function (measure) {
                 return measure.ref === cubeConfig.measure;
@@ -63,7 +66,7 @@
         var matchingCube = matchingCubes.length > 0 ? matchingCubes[0] : null;
         if (matchingCube) {
             $http.get('http://api.regenesis.pudo.org/cube/' + matchingCube.name + '/aggregate?cut=jahr.text:' + cubeConfig.year.label + '&drilldown=' + cubeFilter.level.cubeDimension).success(function (data) {
-                console.log(data);
+                cubeHolder.data = data;
             });
         }
     };
@@ -88,7 +91,7 @@
                 }, true);
 
                 scope.$watch('cubeConfig', function (cubeConfig) {
-                    scope.cube.data = getCubeData(cubeConfig, scope.cubeFilter, $http);
+                    fillCubeData(scope.cube, cubeConfig, scope.cubeFilter, $http);
                 }, true);
             }
         };
