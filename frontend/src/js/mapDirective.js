@@ -5,7 +5,8 @@
         red: ["#fee0d2", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c", "#cb181d", "#a50f15", "#67000d"],
         green: ["#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45", "#006d2c", "#00441b"],
         blue: ["#DEEBF7", "#C6DBEF", "#9ECAE1", "#6BAED6", "#4292C6", "#2171B5", "#08519C", "#08306B"],
-        orange: ["#fff5eb", "#fee6ce", "#fdd0a2", "#fdae6b", "#fd8d3c", "#f16913", "#d94801", "#8c2d04"]
+        orange: ["#fff5eb", "#fee6ce", "#fdd0a2", "#fdae6b", "#fd8d3c", "#f16913", "#d94801", "#8c2d04"],
+        germany: ["#ffdf90", "#ffc32d", "#ff6600", "#ff2f01", "#c10100", "#8d0001", "#520000", "#24000b"],
     };
 
     var safeLog10 = function(number) {
@@ -44,7 +45,7 @@
         },
         addTileLayer: function () {
             var attribution = '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>';
-            L.tileLayer('https://{s}.tiles.mapbox.com/v3/codeforheilbronn.i4fb354c/{z}/{x}/{y}.png', {
+            L.tileLayer('https://{s}.tiles.mapbox.com/v3/pascalgabriel.k28h1mih/{z}/{x}/{y}.png', {
                 'maxZoom': 18,
                 'attribution': attribution
             }).addTo(this.leafletMap);
@@ -124,7 +125,7 @@
                     if (value == 0) {
                         color = '#EEE';
                     } else {
-                        var colorScheme = (value <= 0) ? colors.orange : colors.blue;
+                        var colorScheme = (value <= 0) ? colors.orange : colors.germany;
                         var factor;
                         if (log10Boundary[0] === log10Boundary[1]) {
                             factor = 1;
