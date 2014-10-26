@@ -17,6 +17,9 @@
             measure: null,
             relation: null
         };
+        $scope.styleOptions = {
+            form: 'bubbles'
+        };
         $scope.cube = {
             data: null
         };

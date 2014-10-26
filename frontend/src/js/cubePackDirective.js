@@ -9,9 +9,26 @@
             link: function (scope, element) {
                 var landkreise, data, svg, bubble, diameter, format, color;
 
-                var renderViz = function (fieldName) {
+                diameter = 960,
+                    format = d3.format(",d"),
+                    color = d3.scale.category20c();
+
+                bubble = d3.layout.pack()
+                    .sort(null)
+                    .size([diameter, diameter])
+                    .padding(1.5);
+
+                svg = d3.select(element[0])
+                    .attr("width", diameter)
+                    .attr("height", diameter)
+                    .attr("viewBox", "0 0 " + diameter + " " + diameter)
+                    .attr("class", "bubble");
+
+                var updateData = function () {
+                    if (!scope.cube || !scope.cube.data || !scope.cube.data.cells) return false;
+
                     var node = svg.selectAll(".node")
-                        .data(bubble.nodes(classes(data))
+                        .data(bubble.nodes(classes())
                             .filter(function (d) {
                                 return !d.children;
                             }));
@@ -38,7 +55,7 @@
                         .transition().duration(2000)
                         .attr("r", function (d) {
                             return d.r;
-                        })
+                        });
 
                     node.select("text")
                         .text(function (d) {
@@ -46,52 +63,21 @@
                         });
 
 // Returns a flattened hierarchy containing all leaf nodes under the root.
-                    function classes(root) {
+                    function classes() {
                         var childrenList = [];
-                        root.forEach(function (kreis) {
-                            var currentLandkreise = landkreise.filter(function (landkreis) {
-                                return landkreis.AGS == kreis['kreise.name']
+                        scope.cube.data.cells.forEach(function (cell) {
+                            childrenList.push({
+                                className: cell[scope.cubeFilter.level.cubeDimension + '.label'],
+                                packageName: cell[scope.cubeFilter.level.cubeDimension + '.label'],
+                                value: cell[scope.cubeConfig.measure.ref + '_sum']
                             });
-                            var currentLandkreis = currentLandkreise.length > 0 ? currentLandkreise[0] : null;
-                            if (currentLandkreis && currentLandkreis.AGS.indexOf('08') === 0) {
-                                childrenList.push({
-                                    className: kreis['kreise.label'],
-                                    packageName: kreis['kreise.label'],
-                                    value: kreis[fieldName]
-                                });
-                            }
                         });
                         return { children: childrenList };
                     }
                 };
 
-                $http.get('/data/landkreise.json').success(function (_landkreise) {
-                    landkreise = _landkreise;
-                    $http.get('/data/example.json').success(function (_data) {
-                        data = _data;
-
-                        diameter = 960,
-                            format = d3.format(",d"),
-                            color = d3.scale.category20c();
-
-                        bubble = d3.layout.pack()
-                            .sort(null)
-                            .size([diameter, diameter])
-                            .padding(1.5);
-
-                        svg = d3.select(element[0])
-                            .attr("width", diameter)
-                            .attr("height", diameter)
-                            .attr("viewBox", "0 0 " + diameter + " " + diameter)
-                            .attr("class", "bubble");
-                    });
-                });
-
-                scope.$watch('fieldObj.name', function (fieldObj) {
-                    if (svg && fieldObj) {
-                        renderViz(fieldObj);
-                    }
-                });
+                scope.$watch('cube.data', updateData);
+                scope.$watch('cubeConfig.relation', updateData);
             }
         };
     });

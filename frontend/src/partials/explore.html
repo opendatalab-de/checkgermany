@@ -19,8 +19,10 @@
         <img src="/img/legende_germany.jpg" alt="Kartenlegende">
     </div>
 </div>
-    <div class="col-sm-9 germap" >
-        <map></map>
+    <div class="col-sm-9 germap" ng-show="styleOptions.form=='map'">
+    <map></map>
     </div>
-    
+    <div class="col-sm-9 germap" ng-show="styleOptions.form=='bubbles'">
+        <cube-pack></cube-pack>
+    </div>
 </div>
