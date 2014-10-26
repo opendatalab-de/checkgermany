@@ -13,6 +13,14 @@
         return number === 0 ? 0 : Math.log(Math.abs(number)) / Math.LN10;
     };
 
+    var formatNumber = function (number) {
+        var thousand = '.';
+        var negative = number < 0 ? "-" : "";
+        var absNumber = Math.abs(+number || 0) + "";
+        var thousands = (absNumber.length > 3) ? absNumber.length % 3 : 0;
+        return negative + (thousands ? absNumber.substr(0, thousands) + thousand : "") + absNumber.substr(thousands).replace(/(\d{3})(?=\d)/g, "$1" + thousand);
+    };
+
     var map = {
         leafletMap: null,
         areaLayer: null,
@@ -37,8 +45,18 @@
                 return this._div;
             };
 
-            this.info.update = function (props) {
-                this._div.innerHTML = (props ? '<b>' + props.GEN + ' (' + props.DES + ')</b><br>RS: ' + props.RS : 'Mit der Maus auswählen');
+            this.info.update = function (layer) {
+                var content = "";
+                if (layer && layer.properties) {
+                    var valueLabel = 'Wert';
+                    content = '<b>' + layer.properties.GEN + ' (' + layer.properties.DES + ')</b><br>RS: ' + layer.properties.RS;
+                    if (valueLabel && layer.cellValue) {
+                        content += '<br>' + valueLabel + ': ' + formatNumber(layer.cellValue)
+                    }
+                } else {
+                    content = 'Mit der Maus auswählen';
+                }
+                this._div.innerHTML = content;
             };
 
             this.info.addTo(this.leafletMap);
@@ -66,14 +84,6 @@
                     'weight': 1
                 },
                 onEachFeature: function (feature, layer) {
-                    layer.on("mouseover", function (e) {
-                        that.info.update(feature.properties);
-                    });
-
-                    layer.on("mouseout", function (e) {
-                        that.info.update();
-                    });
-
                     var rs = feature.properties['RS'];
                     if (rs.length > 10) {
                         rs = rs.substr(0, 5) + rs.substr(9, 3)
@@ -83,6 +93,14 @@
                         'cell': null,
                         'properties': feature.properties
                     };
+
+                    layer.on("mouseover", function (e) {
+                        that.info.update(that.areaLayerMap[rs]);
+                    });
+
+                    layer.on("mouseout", function (e) {
+                        that.info.update();
+                    });
                 }
             });
             var layer = omnivore.topojson('/data/' + level.topoJsonId + '_sim200.json', null, customLayer);
@@ -151,6 +169,7 @@
                 var layer = that.areaLayerMap[key];
                 if (layer && layer.cell) {
                     var value = calculateCellValue(layer.cell, layer.properties);
+                    layer.cellValue = value;
                     if (value !== null) {
                         // determine color
                         var color;
