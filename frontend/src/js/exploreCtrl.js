@@ -6,5 +6,8 @@
             field: null,
             areaCode: null
         };
+        $scope.fieldObj = {
+            name: 'stenw5_sum'
+        };
     });
 })(angular, app);
