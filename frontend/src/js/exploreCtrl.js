@@ -1,13 +1,21 @@
 (function (angular, app) {
     'use strict';
-    angular.module('app.explore').controller('ExploreCtrl', function ($scope) {
-        $scope.selection = {
+    angular.module('app.explore').controller('ExploreCtrl', function ($scope, $http) {
+        $http.get('http://api.regenesis.pudo.org/model').success(function(data) {
+            $scope.apiModel = data;
+        });
+
+        $scope.cubeFilter = {
             topic: null,
-            field: null,
-            areaCode: null
+            level: null
         };
-        $scope.fieldObj = {
-            name: 'stenw5_sum'
+        $scope.cube = {
+            def: null,
+            filter: [],
+            measure: null
+        };
+        $scope.viewFilter = {
+            rs: null
         };
     });
 })(angular, app);
