@@ -49,7 +49,7 @@
                 'attribution': attribution
             }).addTo(this.leafletMap);
         },
-        addAreaLayer: function (level) {
+        addAreaLayer: function (level, onSuccess) {
             var that = map;
             if(!level || (that.areaLayer && that.areaLayer.level == level)) return true;
 
@@ -83,6 +83,8 @@
                 'level': level,
                 'layer': layer
             };
+
+            onSuccess();
         },
         addData: function(data, cubeConfig, cubeFilter) {
             var that = map;
@@ -150,11 +152,28 @@
             replace: true,
             link: function (scope, element) {
                 map.init();
+                var areaLayerInitialized = false
+                var lastDataJob = null;
                 scope.$watch('cubeFilter.level', function(level) {
-                    map.addAreaLayer(level);
+                    areaLayerInitialized = false;
+                    var onSuccess = function() {
+                        areaLayerInitialized = true;
+                        if(lastDataJob) {
+                            lastDataJob();
+                        }
+                    };
+                    map.addAreaLayer(level, onSuccess);
                 });
                 scope.$watch('cube.data', function(data) {
-                    map.addData(data, scope.cubeConfig, scope.cubeFilter);
+                    var updateMap = function() {
+                        lastDataJob = null;
+                        map.addData(data, scope.cubeConfig, scope.cubeFilter);
+                    };
+                    if(areaLayerInitialized) {
+                        updateMap();
+                    } else {
+                        lastDataJob = updateMap;
+                    }
                 });
             }
         };
