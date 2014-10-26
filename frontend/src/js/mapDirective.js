@@ -13,22 +13,15 @@
         return number === 0 ? 0 : Math.log(Math.abs(number)) / Math.LN10;
     };
 
-    var formatNumber = function (number) {
-        var thousand = '.';
-        var negative = number < 0 ? "-" : "";
-        var absNumber = Math.abs(+number || 0) + "";
-        var thousands = (absNumber.length > 3) ? absNumber.length % 3 : 0;
-        return negative + (thousands ? absNumber.substr(0, thousands) + thousand : "") + absNumber.substr(thousands).replace(/(\d{3})(?=\d)/g, "$1" + thousand);
-    };
-
     var map = {
         leafletMap: null,
         areaLayer: null,
         areaLayerMap: {},
+        numberFormatter: null,
         init: function () {
             this.leafletMap = L.map('map', {
                 center: [49.165691, 10.451526],
-                zoom: 6,
+                zoom: 7,
                 minZoom: 5,
                 maxZoom: 12
             });
@@ -51,7 +44,11 @@
                     var valueLabel = 'Wert';
                     content = '<b>' + layer.properties.GEN + ' (' + layer.properties.DES + ')</b><br>RS: ' + layer.properties.RS;
                     if (valueLabel && layer.cellValue) {
-                        content += '<br>' + valueLabel + ': ' + formatNumber(layer.cellValue)
+                        var formattedValue = map.numberFormatter(layer.cellValue, 4);
+                        if (formattedValue.indexOf(',0000') > 0) {
+                            formattedValue = formattedValue.substr(0, formattedValue.length - 5);
+                        }
+                        content += '<br>' + valueLabel + ': ' + formattedValue
                     }
                 } else {
                     content = 'Mit der Maus auswählen';
@@ -198,12 +195,13 @@
         }
     };
 
-    angular.module('app.explore').directive('map', function ($http) {
+    angular.module('app.explore').directive('map', function ($http, $filter) {
         return {
             restrict: 'E',
             template: '<div id="map"></div>',
             replace: true,
             link: function (scope, element) {
+                map.numberFormatter = $filter('number');
                 map.init();
                 var areaLayerInitialized = false
                 var lastDataJob = null;
