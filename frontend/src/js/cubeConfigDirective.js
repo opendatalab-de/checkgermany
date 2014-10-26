@@ -71,7 +71,7 @@
         }
         var matchingCubes = cubeConfig.year.cubes.filter(function (cube) {
             var matchingMeasures = cube.measures.filter(function (measure) {
-                return measure.ref === cubeConfig.measure;
+                return measure.ref === cubeConfig.measure.ref;
             });
             return matchingMeasures.length > 0;
         });

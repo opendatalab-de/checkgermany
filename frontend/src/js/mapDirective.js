@@ -6,7 +6,7 @@
         green: ["#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45", "#006d2c", "#00441b"],
         blue: ["#DEEBF7", "#C6DBEF", "#9ECAE1", "#6BAED6", "#4292C6", "#2171B5", "#08519C", "#08306B"],
         orange: ["#fff5eb", "#fee6ce", "#fdd0a2", "#fdae6b", "#fd8d3c", "#f16913", "#d94801", "#8c2d04"],
-        germany: ["#ffdf90", "#ffc32d", "#ff6600", "#ff2f01", "#c10100", "#8d0001", "#520000", "#24000b"],
+        germany: ["#ffdf90", "#ffc32d", "#ff6600", "#ff2f01", "#c10100", "#8d0001", "#520000", "#24000b"]
     };
 
     var safeLog10 = function(number) {
