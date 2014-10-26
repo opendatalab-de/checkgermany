@@ -96,7 +96,7 @@
             var max = 0;
             var min = 10000000;
             data.cells.forEach(function(cell) {
-                var value = cell[cubeConfig.measure + '_sum'];
+                var value = cell[cubeConfig.measure.ref + '_sum'];
                 if (value > max) {
                     max = value;
                 }
@@ -117,7 +117,7 @@
             data.cells.forEach(function(cell) {
                 var layer = that.areaLayerMap[cell[cubeFilter.level.cubeDimension + '.name']];
                 if(layer) {
-                    var value = cell[cubeConfig.measure + '_sum'];
+                    var value = cell[cubeConfig.measure.ref + '_sum'];
 
                     // determine color
                     var color;

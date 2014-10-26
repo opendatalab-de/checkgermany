@@ -1,6 +1,7 @@
 <div ng-show="measures.length > 0">
     <p>
-        Messwert: <select ng-model="cubeConfig.measure" required ng-options="measure for measure in measures"></select>
+        Messwert: <select ng-model="cubeConfig.measure" required
+                          ng-options="measure.label for measure in measures"></select>
     </p>
 
     <p>

@@ -8,12 +8,24 @@
         });
     };
 
-    var extractMeasures = function (cubes) {
+    var extractMeasures = function (cubes, measureDefs) {
+        if (!measureDefs) return [];
         var measures = [];
         cubes.forEach(function (cube) {
             cube.measures.forEach(function (measure) {
-                if (measures.indexOf(measure.ref) < 0) {
-                    measures.push(measure.ref);
+                var matchingMeasures = measures.filter(function (_measure) {
+                    return _measure.ref == measure.ref;
+                });
+                if (matchingMeasures.length < 1) {
+                    var matchingDefs = measureDefs.filter(function (cMeasureDef) {
+                        return cMeasureDef.code == measure.ref;
+                    });
+                    var matchingDef = matchingDefs.length > 0 ? matchingDefs[0] : {};
+
+                    measures.push({
+                        ref: measure.ref,
+                        label: matchingDef.label
+                    });
                 }
             })
         });
@@ -77,9 +89,10 @@
             templateUrl: '/partials/cubeConfig.html',
             replace: true,
             link: function (scope) {
-                scope.$watch('cubeFilter', function (cubeFilter) {
-                    scope.cubes = findMatchingCubes(cubeFilter, scope.apiModel);
-                    scope.measures = extractMeasures(scope.cubes);
+                var update = function () {
+                    if (!scope.cubeFilter || !scope.measureDefs) return true;
+                    scope.cubes = findMatchingCubes(scope.cubeFilter, scope.apiModel);
+                    scope.measures = extractMeasures(scope.cubes, scope.measureDefs);
                     scope.years = [];
                     fillAvailableYears(scope.years, scope.cubes, $http, function () {
                         scope.years.sort(function (a, b) {
@@ -88,7 +101,10 @@
                         scope.cubeConfig.year = scope.years[0];
                     });
                     scope.cubeConfig.measure = scope.measures.length > 0 ? scope.measures[0] : null;
-                }, true);
+                };
+
+                scope.$watch('cubeFilter', update, true);
+                scope.$watch('measuresDef', update);
 
                 scope.$watch('cubeConfig', function (cubeConfig) {
                     fillCubeData(scope.cube, cubeConfig, scope.cubeFilter, $http);

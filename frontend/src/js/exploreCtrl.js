@@ -4,6 +4,9 @@
         $http.get('http://api.regenesis.pudo.org/model').success(function(data) {
             $scope.apiModel = data;
         });
+        $http.get('/data/measuresDef.json').success(function (data) {
+            $scope.measureDefs = data;
+        });
 
         $scope.cubeFilter = {
             topic: null,
