@@ -1,9 +1,9 @@
 <div ng-show="measures.length > 0">
     <p>
-        Messwert: <select ng-model="cube.measure" required ng-options="measure for measure in measures"></select>
+        Messwert: <select ng-model="cubeConfig.measure" required ng-options="measure for measure in measures"></select>
     </p>
 
     <p>
-        Jahr: <select ng-model="cube.year" required ng-options="year.label for year in years"></select>
+        Jahr: <select ng-model="cubeConfig.year" required ng-options="year.label for year in years"></select>
     </p>
 </div>

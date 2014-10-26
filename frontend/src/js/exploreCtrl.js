@@ -9,10 +9,12 @@
             topic: null,
             level: null
         };
-        $scope.cube = {
-            def: null,
-            filter: [],
+        $scope.cubeConfig = {
+            year: null,
             measure: null
+        };
+        $scope.cube = {
+            data: null
         };
         $scope.viewFilter = {
             rs: null

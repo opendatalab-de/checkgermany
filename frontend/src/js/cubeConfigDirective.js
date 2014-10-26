@@ -40,16 +40,32 @@
                     if (!matchingYear) {
                         matchingYear = {
                             label: yearLabel,
-                            cubeCodes: []
+                            cubes: []
                         };
                         years.push(matchingYear);
                     }
-                    matchingYear.cubeCodes.push(cube.name);
+                    matchingYear.cubes.push(cube);
                 });
                 resolvedCubes++;
                 callOnSuccessWhenAllCubesAreResolved();
             });
         })
+    };
+
+    var getCubeData = function (cubeConfig, cubeFilter, $http) {
+        if (!cubeConfig.year || !cubeConfig.measure || !cubeFilter.level) return false;
+        var matchingCubes = cubeConfig.year.cubes.filter(function (cube) {
+            var matchingMeasures = cube.measures.filter(function (measure) {
+                return measure.ref === cubeConfig.measure;
+            });
+            return matchingMeasures.length > 0;
+        });
+        var matchingCube = matchingCubes.length > 0 ? matchingCubes[0] : null;
+        if (matchingCube) {
+            $http.get('http://api.regenesis.pudo.org/cube/' + matchingCube.name + '/aggregate?cut=jahr.text:' + cubeConfig.year.label + '&drilldown=' + cubeFilter.level.cubeDimension).success(function (data) {
+                console.log(data);
+            });
+        }
     };
 
     angular.module('app.explore').directive('cubeConfig', function ($http) {
@@ -66,9 +82,13 @@
                         scope.years.sort(function (a, b) {
                             return parseInt(b.label, 10) - parseInt(a.label, 10);
                         });
-                        scope.cube.year = scope.years[0];
+                        scope.cubeConfig.year = scope.years[0];
                     });
-                    scope.cube.measure = scope.measures.length > 0 ? scope.measures[0] : null;
+                    scope.cubeConfig.measure = scope.measures.length > 0 ? scope.measures[0] : null;
+                }, true);
+
+                scope.$watch('cubeConfig', function (cubeConfig) {
+                    scope.cube.data = getCubeData(cubeConfig, scope.cubeFilter, $http);
                 }, true);
             }
         };
