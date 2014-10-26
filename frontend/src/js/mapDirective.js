@@ -19,8 +19,8 @@
         areaLayerMap: {},
         init: function () {
             this.leafletMap = L.map('map', {
-                center: [51.165691, 10.451526],
-                zoom: 7,
+                center: [49.165691, 10.451526],
+                zoom: 6,
                 minZoom: 5,
                 maxZoom: 12
             });
@@ -62,7 +62,7 @@
 
             var customLayer = L.geoJson(null, {
                 style: {
-                    'opacity': 0.5,
+                    'opacity': 0.8,
                     'weight': 1
                 },
                 onEachFeature: function (feature, layer) {
