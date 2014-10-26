@@ -6,7 +6,7 @@
 
         //filter out all cubes with dimension "stag", as we can't use this attribute due to a bug in the regenesis api
         var usableCubes = apiModel.cubes.filter(function (cube) {
-            return cube.dimensions.indexOf('stag') < 0;
+            return cube.dimensions.indexOf('stag') < 0 && cube.dimensions.indexOf('jahr') >= 0;
         });
 
         //group by topic labels and ids (first 5 digits of the table-code)

@@ -21,7 +21,7 @@
         if (!topic || !apiModel) return [];
 
         var cubes = apiModel.cubes.filter(function (cube) {
-            return cube.name.substr(0, 5) === topic.code;
+            return cube.name.substr(0, 5) === topic.code && cube.dimensions.indexOf('stag') < 0 && cube.dimensions.indexOf('jahr') >= 0;
         });
 
         var availableLevelCubeDimensions = [];
@@ -42,11 +42,14 @@
     angular.module('app.explore').directive('levelSelection', function () {
         return {
             restrict: 'E',
-            templateUrl: '/partials/fieldSelection.html',
+            templateUrl: '/partials/levelSelection.html',
             replace: true,
             link: function (scope) {
                 scope.$watch('cubeFilter.topic', function (topic) {
                     scope.levels = determineAvailableLevels(topic, scope.apiModel);
+                    if (scope.levels.length > 0 && scope.levels.indexOf(scope.cubeFilter.level) < 0) {
+                        scope.cubeFilter.level = scope.levels[0];
+                    }
                 });
             }
         };
