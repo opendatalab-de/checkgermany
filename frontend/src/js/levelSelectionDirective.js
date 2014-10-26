@@ -5,15 +5,18 @@
     var levels = [
         {
             label: 'Gemeinden',
-            cubeDimension: 'gemein'
+            cubeDimension: 'gemein',
+            topoJsonId: 'gemeinden'
         },
         {
             label: 'Stadt- und Landkreise',
-            cubeDimension: 'kreise'
+            cubeDimension: 'kreise',
+            topoJsonId: 'landkreise'
         },
         {
             label: 'Bundesländer',
-            cubeDimension: 'dland'
+            cubeDimension: 'dland',
+            topoJsonId: 'bundeslaender'
         }
     ];
 
