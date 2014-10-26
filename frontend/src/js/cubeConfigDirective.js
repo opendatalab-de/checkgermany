@@ -1,6 +1,17 @@
 (function (angular, app) {
     'use strict';
 
+    var relations = [
+        {
+            fieldIds: ['EWZ_M', 'EWZ_W'],
+            label: 'Einwohnerzahl'
+        },
+        {
+            fieldIds: ['SHAPE_AREA'],
+            label: 'Fläche'
+        }
+    ];
+
     var findMatchingCubes = function (cubeFilter, apiModel) {
         if (!cubeFilter.topic || !cubeFilter.level || !apiModel) return [];
         return apiModel.cubes.filter(function (cube) {
@@ -89,6 +100,8 @@
             templateUrl: '/partials/cubeConfig.html',
             replace: true,
             link: function (scope) {
+                scope.relations = relations;
+
                 var update = function () {
                     if (!scope.cubeFilter || !scope.measureDefs) return true;
                     scope.cubes = findMatchingCubes(scope.cubeFilter, scope.apiModel);
@@ -106,9 +119,11 @@
                 scope.$watch('cubeFilter', update, true);
                 scope.$watch('measuresDef', update);
 
-                scope.$watch('cubeConfig', function (cubeConfig) {
-                    fillCubeData(scope.cube, cubeConfig, scope.cubeFilter, $http);
-                }, true);
+                var updateData = function () {
+                    fillCubeData(scope.cube, scope.cubeConfig, scope.cubeFilter, $http);
+                };
+                scope.$watch('cubeConfig.year', updateData);
+                scope.$watch('cubeConfig.measure', updateData);
             }
         };
     });

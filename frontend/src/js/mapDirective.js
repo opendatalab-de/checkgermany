@@ -9,7 +9,7 @@
         germany: ["#ffdf90", "#ffc32d", "#ff6600", "#ff2f01", "#c10100", "#8d0001", "#520000", "#24000b"]
     };
 
-    var safeLog10 = function(number) {
+    var safeLog10 = function (number) {
         return number === 0 ? 0 : Math.log(Math.abs(number)) / Math.LN10;
     };
 
@@ -52,9 +52,9 @@
         },
         addAreaLayer: function (level, onSuccess) {
             var that = map;
-            if(!level || (that.areaLayer && that.areaLayer.level == level)) return true;
+            if (!level || (that.areaLayer && that.areaLayer.level == level)) return true;
 
-            if(that.areaLayer) {
+            if (that.areaLayer) {
                 that.leafletMap.removeLayer(that.areaLayer.layer);
                 that.areaLayer = null;
                 that.areaLayerMap = {};
@@ -74,7 +74,15 @@
                         that.info.update();
                     });
 
-                    that.areaLayerMap[feature.properties['RS']] = layer;
+                    var rs = feature.properties['RS'];
+                    if (rs.length > 10) {
+                        rs = rs.substr(0, 5) + rs.substr(9, 3)
+                    }
+                    that.areaLayerMap[rs] = {
+                        'layer': layer,
+                        'cell': null,
+                        'properties': feature.properties
+                    };
                 }
             });
             var layer = omnivore.topojson('/data/' + level.topoJsonId + '_sim200.json', null, customLayer);
@@ -87,60 +95,85 @@
 
             onSuccess();
         },
-        addData: function(data, cubeConfig, cubeFilter) {
+        addData: function (data, cubeConfig, cubeFilter) {
             var that = map;
-            if(!data || !cubeConfig.measure) {
+            if (!data || !cubeConfig.measure) {
                 return true;
             }
 
-            // determine max & min;
-            var max = 0;
-            var min = 10000000;
-            data.cells.forEach(function(cell) {
-                var value = cell[cubeConfig.measure.ref + '_sum'];
-                if (value > max) {
-                    max = value;
+            var calculateCellValue = function (cell, properties) {
+                var cellValue = cell[cubeConfig.measure.ref + '_sum'];
+                if (cubeConfig.relation) {
+                    var relationValue = 0;
+                    cubeConfig.relation.fieldIds.forEach(function (fieldId) {
+                        relationValue += properties[fieldId];
+                    });
+                    return relationValue > 0 ? Math.round(cellValue / relationValue * 10000) / 10000 : null;
+                } else {
+                    return cellValue;
                 }
-                if (value < min && value > 0) {
-                    min = value;
-                }
-            });
-            var log10Boundary = [safeLog10(max), safeLog10(min)];
+            };
 
-            // reset
-            Object.keys(that.areaLayerMap).forEach(function(key) {
-                that.areaLayerMap[key].setStyle({
+            Object.keys(that.areaLayerMap).forEach(function (key) {
+                that.areaLayerMap[key].cell = null;
+                that.areaLayerMap[key].layer.setStyle({
                     'fillOpacity': 0.65,
                     'fillColor': '#EEE'
                 });
             });
 
-            data.cells.forEach(function(cell) {
+            data.cells.forEach(function (cell) {
                 var layer = that.areaLayerMap[cell[cubeFilter.level.cubeDimension + '.name']];
-                if(layer) {
-                    var value = cell[cubeConfig.measure.ref + '_sum'];
+                if (layer) {
+                    layer.cell = cell;
+                }
+            });
 
-                    // determine color
-                    var color;
-                    if (value == 0) {
-                        color = '#EEE';
-                    } else {
-                        var colorScheme = (value <= 0) ? colors.orange : colors.germany;
-                        var factor;
-                        if (log10Boundary[0] === log10Boundary[1]) {
-                            factor = 1;
+            // determine max & min and reset colors;
+            var max = 0;
+            var min = 10000000;
+            Object.keys(that.areaLayerMap).forEach(function (key) {
+                if (that.areaLayerMap[key].cell) {
+                    var value = calculateCellValue(that.areaLayerMap[key].cell, that.areaLayerMap[key].properties);
+                    if (value !== null) {
+                        if (value > max) {
+                            max = value;
                         }
-                        else {
-                            factor = Math.round((safeLog10(value) - log10Boundary[1]) / (log10Boundary[0] - log10Boundary[1]) * 100) / 100;
+                        if (value < min && value > 0) {
+                            min = value;
                         }
-                        var colorIndex = Math.max(0, Math.round((colorScheme.length - 1) * factor));
-                        color = colorScheme[colorIndex];
                     }
+                }
+            });
+            var log10Boundary = [safeLog10(max), safeLog10(min)];
 
-                    layer.setStyle({
-                        'fillOpacity': 0.65,
-                        'fillColor': color
-                    });
+            Object.keys(that.areaLayerMap).forEach(function (key) {
+                var layer = that.areaLayerMap[key];
+                if (layer && layer.cell) {
+                    var value = calculateCellValue(layer.cell, layer.properties);
+                    if (value !== null) {
+                        // determine color
+                        var color;
+                        if (value == 0) {
+                            color = '#EEE';
+                        } else {
+                            var colorScheme = (value <= 0) ? colors.orange : colors.germany;
+                            var factor;
+                            if (log10Boundary[0] === log10Boundary[1]) {
+                                factor = 1;
+                            }
+                            else {
+                                factor = Math.round((safeLog10(value) - log10Boundary[1]) / (log10Boundary[0] - log10Boundary[1]) * 100) / 100;
+                            }
+                            var colorIndex = Math.max(0, Math.round((colorScheme.length - 1) * factor));
+                            color = colorScheme[colorIndex];
+                        }
+
+                        layer.layer.setStyle({
+                            'fillOpacity': 0.65,
+                            'fillColor': color
+                        });
+                    }
                 }
             });
         }
@@ -155,27 +188,30 @@
                 map.init();
                 var areaLayerInitialized = false
                 var lastDataJob = null;
-                scope.$watch('cubeFilter.level', function(level) {
+                scope.$watch('cubeFilter.level', function (level) {
                     areaLayerInitialized = false;
-                    var onSuccess = function() {
+                    var onSuccess = function () {
                         areaLayerInitialized = true;
-                        if(lastDataJob) {
+                        if (lastDataJob) {
                             lastDataJob();
                         }
                     };
                     map.addAreaLayer(level, onSuccess);
                 });
-                scope.$watch('cube.data', function(data) {
-                    var updateMap = function() {
+
+                var updateData = function () {
+                    var updateMap = function () {
                         lastDataJob = null;
-                        map.addData(data, scope.cubeConfig, scope.cubeFilter);
+                        map.addData(scope.cube.data, scope.cubeConfig, scope.cubeFilter);
                     };
-                    if(areaLayerInitialized) {
+                    if (areaLayerInitialized) {
                         updateMap();
                     } else {
                         lastDataJob = updateMap;
                     }
-                });
+                };
+                scope.$watch('cube.data', updateData);
+                scope.$watch('cubeConfig.relation', updateData);
             }
         };
     });

@@ -14,7 +14,8 @@
         };
         $scope.cubeConfig = {
             year: null,
-            measure: null
+            measure: null,
+            relation: null
         };
         $scope.cube = {
             data: null

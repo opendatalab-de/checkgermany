@@ -7,4 +7,11 @@
     <p>
         Jahr: <select ng-model="cubeConfig.year" required ng-options="year.label for year in years"></select>
     </p>
+
+    <p>
+        In Verhältnis setzen zu:
+        <select ng-model="cubeConfig.relation" ng-options="relation.label for relation in relations">
+            <option value="">nichts (absoluter Wert)</option>
+        </select>
+    </p>
 </div>
