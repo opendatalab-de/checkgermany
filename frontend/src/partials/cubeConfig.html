@@ -1,0 +1,10 @@
+<div ng-show="measures.length > 0">
+    <p>
+        Messwert: <select ng-model="cubeConfig.measure" required
+                          ng-options="measure.label for measure in measures"></select>
+    </p>
+
+    <p>
+        Jahr: <select ng-model="cubeConfig.year" required ng-options="year.label for year in years"></select>
+    </p>
+</div>

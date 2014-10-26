@@ -1,0 +1,1510 @@
+[
+    {
+        "code": "aew003",
+        "label": "Abgegebene Abfallmenge"
+    },
+    {
+        "code": "aew010",
+        "label": "Abgegebene Abfallmenge"
+    },
+    {
+        "code": "aew007",
+        "label": "Abgegebene Abfallmenge an Entsorger"
+    },
+    {
+        "code": "aenw02",
+        "label": "Abgelagerte Abfallmenge in Deponien"
+    },
+    {
+        "code": "aenw05",
+        "label": "Abgelagerte Abfallmenge in Deponien"
+    },
+    {
+        "code": "bilabs",
+        "label": "Absolventen/Abgänger"
+    },
+    {
+        "code": "bilabb",
+        "label": "Absolventen/Abgänger (berufllich)"
+    },
+    {
+        "code": "wasnw3",
+        "label": "Abwasser"
+    },
+    {
+        "code": "wasnw8",
+        "label": "Abwasserbehandlungsanlagen"
+    },
+    {
+        "code": "bil013",
+        "label": "Allgemein bildende Schulen"
+    },
+    {
+        "code": "ai0215",
+        "label": "Altenquotient"
+    },
+    {
+        "code": "pfl005",
+        "label": "ambulante Pflege"
+    },
+    {
+        "code": "pfl017",
+        "label": "ambulante Pflege"
+    },
+    {
+        "code": "gast03",
+        "label": "Angebotene Gästebetten"
+    },
+    {
+        "code": "wasnw7",
+        "label": "Angeschlossene Einwohnerwerte (Ew-Werte)"
+    },
+    {
+        "code": "wasnw5",
+        "label": "Angeschloss. Ew-Werte: dar. angeschloss. Einwohner"
+    },
+    {
+        "code": "ai0806",
+        "label": "Anteil Arbeitslose 15-24 Jahre an Arbeitsl. insg."
+    },
+    {
+        "code": "ai0807",
+        "label": "Anteil Arbeitslose 55-64 Jahre an Arbeitsl. insg."
+    },
+    {
+        "code": "ai0809",
+        "label": "Anteil arbeitslose Ausländer an Arbeitslosen insg."
+    },
+    {
+        "code": "ai0208",
+        "label": "Anteil Ausländer an der Gesamtbevölkerung"
+    },
+    {
+        "code": "ai0301",
+        "label": "Anteil betreute Kinder 0-2 Jahre in Tageseinricht."
+    },
+    {
+        "code": "ai0302",
+        "label": "Anteil betreute Kinder 0-2 Jahre in Tagespflege"
+    },
+    {
+        "code": "ai0303",
+        "label": "Anteil betreute Kinder 3-5 Jahre in Tageseinricht."
+    },
+    {
+        "code": "ai0102",
+        "label": "Anteil Erholungsfläche an Gesamtfläche"
+    },
+    {
+        "code": "ai0705",
+        "label": "Anteil Erwerbstätige Baugewerbe"
+    },
+    {
+        "code": "ai0706",
+        "label": "Anteil Erwerbstätige Dienstleistungsbereiche"
+    },
+    {
+        "code": "ai0703",
+        "label": "Anteil Erwerbstätige Produzierendes Gewerbe"
+    },
+    {
+        "code": "ai0704",
+        "label": "Anteil Erwerbstätige Verarbeitendes Gewerbe"
+    },
+    {
+        "code": "ai0702",
+        "label": "Anteil Erwerbst. Land- u. Forstwirtsch., Fischerei"
+    },
+    {
+        "code": "ai0103",
+        "label": "Anteil Landwirtschaftsfläche an Gesamtfläche"
+    },
+    {
+        "code": "ai0808",
+        "label": "Anteil Langzeitarbeitslose an Arbeitslosen insg."
+    },
+    {
+        "code": "ai0309",
+        "label": "Anteil männl. Schulabgänger mit Hauptschulabschl."
+    },
+    {
+        "code": "ai0308",
+        "label": "Anteil männl. Schulabgänger ohne Hauptschulabschl."
+    },
+    {
+        "code": "ai0310",
+        "label": "Anteil männl. Schulabg. mit allgem. Hochschulreife"
+    },
+    {
+        "code": "ai1101",
+        "label": "Anteil neue Wohngebäude mit 1 oder 2 Wohnungen"
+    },
+    {
+        "code": "ai0304",
+        "label": "Anteil Schulabgänger mit allgem. Hochschulreife"
+    },
+    {
+        "code": "ai0305",
+        "label": "Anteil Schulabgänger ohne Hauptschulabschluss"
+    },
+    {
+        "code": "ai0101",
+        "label": "Anteil Siedlungs- und Verkehrsfläche an Gesamtfl."
+    },
+    {
+        "code": "ai0104",
+        "label": "Anteil Waldfläche an Gesamtfläche"
+    },
+    {
+        "code": "ai0708",
+        "label": "Ant EW Finanz-, Vers., Unt-dl., Grundst-, Wohngsw."
+    },
+    {
+        "code": "ai0707",
+        "label": "Ant EW Handel, Verkehr, Gastgew., Inform., Kommun."
+    },
+    {
+        "code": "ai0709",
+        "label": "Ant EW Öffentl. u. sonst. DL, Erzieh., Gesundh."
+    },
+    {
+        "code": "erw061",
+        "label": "Arbeitnehmer im Jahresdurchschn. (Inlandskonzept)"
+    },
+    {
+        "code": "erw046",
+        "label": "Arbeitskräfte"
+    },
+    {
+        "code": "lst009",
+        "label": "Arbeitsleistung"
+    },
+    {
+        "code": "erwp06",
+        "label": "Arbeitslose"
+    },
+    {
+        "code": "erwn06",
+        "label": "Arbeitslose"
+    },
+    {
+        "code": "erw006",
+        "label": "Arbeitslose"
+    },
+    {
+        "code": "erwo06",
+        "label": "Arbeitslose"
+    },
+    {
+        "code": "ai0801",
+        "label": "Arbeitslosenquote"
+    },
+    {
+        "code": "ai0804",
+        "label": "Arbeitslosenquote 15 bis 24 Jahre"
+    },
+    {
+        "code": "ai0805",
+        "label": "Arbeitslosenquote Ausländer"
+    },
+    {
+        "code": "erwp09",
+        "label": "Arbeitslosenquote bez. abh. zivile Erwerbspers."
+    },
+    {
+        "code": "erwo10",
+        "label": "Arbeitslosenquote bez. auf abhäng. Erwerbsp."
+    },
+    {
+        "code": "erwn10",
+        "label": "Arbeitslosenquote bez. auf abhäng. Erwerbsp."
+    },
+    {
+        "code": "erw010",
+        "label": "Arbeitslosenquote bez.auf alle abhäng. Erwerbsp."
+    },
+    {
+        "code": "erw009",
+        "label": "Arbeitslosenquote bez. auf alle Erwerbspers."
+    },
+    {
+        "code": "erwo09",
+        "label": "Arbeitslosenquote bez. auf alle Erwerbspers."
+    },
+    {
+        "code": "erwn09",
+        "label": "Arbeitslosenquote bez. auf alle Erwerbspers."
+    },
+    {
+        "code": "erwp10",
+        "label": "Arbeitslosenquote bez. auf alle zivile Erwerbsp."
+    },
+    {
+        "code": "ai0803",
+        "label": "Arbeitslosenquote Frauen"
+    },
+    {
+        "code": "ai0802",
+        "label": "Arbeitslosenquote Männer"
+    },
+    {
+        "code": "ai0701",
+        "label": "Arbeitsplatzdichte"
+    },
+    {
+        "code": "ai2301",
+        "label": "Armutsgefährdungsquote (Bundesmedian)"
+    },
+    {
+        "code": "ai2302",
+        "label": "Armutsgefährdungsquote (regionaler Median)"
+    },
+    {
+        "code": "ges017",
+        "label": "aufgestellte Betten im Jahresdurchschnitt"
+    },
+    {
+        "code": "ges059",
+        "label": "aufgestellte Betten (JD) in Krankenhäuser"
+    },
+    {
+        "code": "ges068",
+        "label": "aufgestellte Betten (JD) in Vors./Reha-Einrichtung"
+    },
+    {
+        "code": "aew009",
+        "label": "Aufkommen an Haushaltsabfällen (oh.Elektroaltger.)"
+    },
+    {
+        "code": "umsn3 ",
+        "label": "uslandsumsatz"
+    },
+    {
+        "code": "pen092",
+        "label": "Auspendler(innen) über Gemeindegrenzen (Wohnort)"
+    },
+    {
+        "code": "pen082",
+        "label": "Auspendler(innen) über Kreisgrenzen (Wohnort)"
+    },
+    {
+        "code": "pen072",
+        "label": "Auspendler(innen) über Landesgrenzen (Wohnort)"
+    },
+    {
+        "code": "bil014",
+        "label": "Berufliche Schulen"
+    },
+    {
+        "code": "erw012",
+        "label": "Beschäftigte"
+    },
+    {
+        "code": "ai1501",
+        "label": "Beschäftigte Bund, Länder, Gemeinden/GV je 1.000EW"
+    },
+    {
+        "code": "erw040",
+        "label": "Beschäftigte der Gemeinden/Gemeindeverbände"
+    },
+    {
+        "code": "erw038",
+        "label": "Beschäftigte des Bundes"
+    },
+    {
+        "code": "erw039",
+        "label": "Beschäftigte des Landes"
+    },
+    {
+        "code": "erw054",
+        "label": "Beschäftigte d. Gemeinden/GV: Vollzeitäquivalent"
+    },
+    {
+        "code": "bes003",
+        "label": "Beschäftigte im öffentlichen Dienst"
+    },
+    {
+        "code": "ai0710",
+        "label": "Beschäftigtenquote"
+    },
+    {
+        "code": "ai0712",
+        "label": "Beschäftigtenquote Frauen"
+    },
+    {
+        "code": "ai0711",
+        "label": "Beschäftigtenquote Männer"
+    },
+    {
+        "code": "isvnw1",
+        "label": "Beschäftigte (Unternehmen)"
+    },
+    {
+        "code": "kind01",
+        "label": "Betreute Kinder"
+    },
+    {
+        "code": "ai0306",
+        "label": "Betreuungsquote 0 bis 2 Jahre"
+    },
+    {
+        "code": "ai0307",
+        "label": "Betreuungsquote 3 bis 5 Jahre"
+    },
+    {
+        "code": "betr01",
+        "label": "Betriebe"
+    },
+    {
+        "code": "ai0201",
+        "label": "Bevölkerungsdichte (Einwohner je qkm)"
+    },
+    {
+        "code": "ai0202",
+        "label": "Bevölkerungsentwicklung im Jahr je 10.000 Einw."
+    },
+    {
+        "code": "bevst1",
+        "label": "Bevölkerungsstand"
+    },
+    {
+        "code": "bevstd",
+        "label": "Bevölkerungsstand"
+    },
+    {
+        "code": "flc005",
+        "label": "Bodenfläche"
+    },
+    {
+        "code": "ausnw3",
+        "label": "Bruttoausgaben der Gemeinden"
+    },
+    {
+        "code": "ausnw1",
+        "label": "Bruttoausgaben der Kreise"
+    },
+    {
+        "code": "einnw2",
+        "label": "Bruttoeinnahmen der Gemeinden"
+    },
+    {
+        "code": "einnw1",
+        "label": "Bruttoeinnahmen der Kreise"
+    },
+    {
+        "code": "entgel",
+        "label": "Bruttoentgelte"
+    },
+    {
+        "code": "ai1002",
+        "label": "Bruttoentgelte je Beschäftigten"
+    },
+    {
+        "code": "bip002",
+        "label": "Bruttoinlandsprodukt"
+    },
+    {
+        "code": "bip802",
+        "label": "Bruttoinlandsprodukt"
+    },
+    {
+        "code": "ai1704",
+        "label": "Bruttoinlandsprodukt je Arbeitsstunde"
+    },
+    {
+        "code": "bip804",
+        "label": "Bruttoinlandsprodukt je Einwohner"
+    },
+    {
+        "code": "bip004",
+        "label": "Bruttoinlandsprodukt je Einwohner"
+    },
+    {
+        "code": "bip803",
+        "label": "Bruttoinlandsprodukt je Erwerbstätigen"
+    },
+    {
+        "code": "bip003",
+        "label": "Bruttoinlandsprodukt je Erwerbstätigen"
+    },
+    {
+        "code": "vstnw3",
+        "label": "Bruttolohn- und -gehaltssumme"
+    },
+    {
+        "code": "vst003",
+        "label": "Bruttolohn- und -gehaltssumme"
+    },
+    {
+        "code": "bws005",
+        "label": "BWS zu Herstellungspreisen in jeweiligen Preisen"
+    },
+    {
+        "code": "dedom1",
+        "label": "de-domains"
+    },
+    {
+        "code": "ai1201",
+        "label": "Durchschnittliche Aufenthaltsdauer"
+    },
+    {
+        "code": "ai0901",
+        "label": "Durchschnittliche Betriebsgröße"
+    },
+    {
+        "code": "bev028",
+        "label": "Durchschnittliche Jahresbevölkerung"
+    },
+    {
+        "code": "bau004",
+        "label": "Durchschnittlicher Kaufwert je qm"
+    },
+    {
+        "code": "wgs031",
+        "label": "Durchschn.mtl.Anspruch an allgemeinem Wohngeld"
+    },
+    {
+        "code": "wgs003",
+        "label": "Durchschn.mtl.Anspruch an allgemeinem Wohngeld"
+    },
+    {
+        "code": "bev003",
+        "label": "Eheschließungen"
+    },
+    {
+        "code": "pen091",
+        "label": "Einpendler(innen) über Gemeindegrenze (Arbeitsort)"
+    },
+    {
+        "code": "pen081",
+        "label": "Einpendler(innen) über Kreisgrenzen (Arbeitsort)"
+    },
+    {
+        "code": "pen071",
+        "label": "Einpendler(innen) über Landesgrenzen (Arbeitsort)"
+    },
+    {
+        "code": "soz004",
+        "label": "Einrichtungen der Jugendhilfe"
+    },
+    {
+        "code": "kin004",
+        "label": "Einrichtungen mit integrativer Kinderbetreuung"
+    },
+    {
+        "code": "was005",
+        "label": "Einw. m. Anschl. an d. öffentl. Wasserversorgung"
+    },
+    {
+        "code": "bev016",
+        "label": "Einwohner"
+    },
+    {
+        "code": "ai1801",
+        "label": "Elterngeldbezug Vater"
+    },
+    {
+        "code": "ai2104",
+        "label": "Empfänger Arbeitslosengeld II"
+    },
+    {
+        "code": "ai2106",
+        "label": "Empfänger Arbeitslosengeld II ab 55 Jahre"
+    },
+    {
+        "code": "ai2105",
+        "label": "Empfänger Arbeitslosengeld II bis 24 Jahre"
+    },
+    {
+        "code": "soznw1",
+        "label": "Empfänger lfd. Hilfe zum Lebensunterhalt"
+    },
+    {
+        "code": "soz001",
+        "label": "Empfänger lfd. Hilfe zum Lebensunterhalt"
+    },
+    {
+        "code": "egs001",
+        "label": "Empfänger von Grundsicherung"
+    },
+    {
+        "code": "esml01",
+        "label": "Empfänger von sozialen Mindestsicherungsleistungen"
+    },
+    {
+        "code": "vbr001",
+        "label": "Energieverbrauch (insgesamt)"
+    },
+    {
+        "code": "twa501",
+        "label": "Entgelt f. Trinkwasserversorgung priv. Haushalte"
+    },
+    {
+        "code": "aewn09",
+        "label": "Entsorgte/behandelte Abfallmenge"
+    },
+    {
+        "code": "aew002",
+        "label": "Entsorgte/behandelte Abfallmenge"
+    },
+    {
+        "code": "aenw04",
+        "label": "Entsorgte/behandelte Abfallmenge a.d. eig. BL"
+    },
+    {
+        "code": "aenw01",
+        "label": "Entsorgte/behandelte Abfallmenge a.d. eig. BL"
+    },
+    {
+        "code": "aenw03",
+        "label": "Entsorg.u.Behandlungsanl.(o.Sortier.u.Zerlege.)"
+    },
+    {
+        "code": "aenw06",
+        "label": "Entsorg.u.Behandlungsanl.(o.Sortier.u.Zerlege.)"
+    },
+    {
+        "code": "aew001",
+        "label": "Entsorgungs- und Behandlungsanlagen"
+    },
+    {
+        "code": "aew008",
+        "label": "Entsorgungs- und Behandlungsanlagen"
+    },
+    {
+        "code": "erw063",
+        "label": "Erwerbstätige im Jahresdurchschn. (Inlandskonzept)"
+    },
+    {
+        "code": "aew006",
+        "label": "Erzeuger von primär nachgewiesenen Abfallmengen"
+    },
+    {
+        "code": "flc004",
+        "label": "Fläche"
+    },
+    {
+        "code": "flc043",
+        "label": "Fläche im jeweiligen Eigentumsverhältnis"
+    },
+    {
+        "code": "bev084",
+        "label": "Fortzüge ins Ausland über Gemeindegrenzen"
+    },
+    {
+        "code": "bev082",
+        "label": "Fortzüge über die Gemeindegrenzen"
+    },
+    {
+        "code": "bev086",
+        "label": "Fortzüge über die Kreisgrenzen"
+    },
+    {
+        "code": "ai0311",
+        "label": "Ganztagsbetreuung 0 bis 2 Jahre"
+    },
+    {
+        "code": "ai0312",
+        "label": "Ganztagsbetreuung 3 bis 5 Jahre"
+    },
+    {
+        "code": "gast01",
+        "label": "Gästeankünfte"
+    },
+    {
+        "code": "gast02",
+        "label": "Gästeübernachtungen"
+    },
+    {
+        "code": "vbr020",
+        "label": "Gasverbrauch"
+    },
+    {
+        "code": "bau015",
+        "label": "Gebäude"
+    },
+    {
+        "code": "flc006",
+        "label": "Gebietsfläche"
+    },
+    {
+        "code": "ai0211",
+        "label": "Geburten-/Gestorbenenüberschuss je 10.000 Einw."
+    },
+    {
+        "code": "arbst2",
+        "label": "geleistete Arbeiterstunden"
+    },
+    {
+        "code": "arbst1",
+        "label": "geleistete Arbeitsstunden"
+    },
+    {
+        "code": "steu08",
+        "label": "Gemeindeanteil an der Einkommensteuer"
+    },
+    {
+        "code": "stenw4",
+        "label": "Gemeindeanteil an der Umsatzsteuer"
+    },
+    {
+        "code": "plz005",
+        "label": "Genehmigte Plätze"
+    },
+    {
+        "code": "wasnw2",
+        "label": "genutztes Wasser"
+    },
+    {
+        "code": "gast04",
+        "label": "Geöffnete Beherbergungsbetriebe"
+    },
+    {
+        "code": "flc049",
+        "label": "gepachtete LF"
+    },
+    {
+        "code": "hwtp03",
+        "label": "geringfügig entlohnt Beschäftigte"
+    },
+    {
+        "code": "ekf002",
+        "label": "Gesamtbetrag der Einkünfte"
+    },
+    {
+        "code": "ai1602",
+        "label": "Gesamtbetrag der Einkünfte je Steuerpflichtigen"
+    },
+    {
+        "code": "ums011",
+        "label": "Gesamtumsatz des Vorjahres"
+    },
+    {
+        "code": "bev002",
+        "label": "Gestorbene"
+    },
+    {
+        "code": "ai0210",
+        "label": "Gestorbene je 10.000 Einwohner"
+    },
+    {
+        "code": "ai1304",
+        "label": "Getötete bei Straßenverkehrsunfällen je 100.000 EW"
+    },
+    {
+        "code": "ver009",
+        "label": "Getötete Personen"
+    },
+    {
+        "code": "gew003",
+        "label": "Gewerbeabmeldungen (ohne Automatenaufsteller)"
+    },
+    {
+        "code": "gew013",
+        "label": "Gewerbeabmeldungen (ohne Automatenaufsteller)"
+    },
+    {
+        "code": "ai0401",
+        "label": "Gewerbeanmeldungen je 10.000 Einwohner"
+    },
+    {
+        "code": "gew011",
+        "label": "Gewerbeanmeldungen (ohne Automatenaufsteller)"
+    },
+    {
+        "code": "gew001",
+        "label": "Gewerbeanmeldungen (ohne Automatenaufsteller)"
+    },
+    {
+        "code": "stenw5",
+        "label": "Gewerbesteuereinnahmen (Aufkommen abzgl. Umlage)"
+    },
+    {
+        "code": "steu07",
+        "label": "Gewerbesteuer - Grundbetrag"
+    },
+    {
+        "code": "stenw3",
+        "label": "Gewerbesteuer - Hebesatz"
+    },
+    {
+        "code": "steu04",
+        "label": "Gewerbesteuer - Istaufkommen"
+    },
+    {
+        "code": "steu09",
+        "label": "Gewerbesteuerumlage"
+    },
+    {
+        "code": "gew002",
+        "label": "Gewerbeummeldungen (ohne Automatenaufsteller)"
+    },
+    {
+        "code": "tienw1",
+        "label": "Großvieheinheiten (GV)"
+    },
+    {
+        "code": "ai2204",
+        "label": "Grundsicherungsquote Frauen"
+    },
+    {
+        "code": "ai2201",
+        "label": "Grundsicherungsquote im Alter ab 65 Jahre"
+    },
+    {
+        "code": "ai2203",
+        "label": "Grundsicherungsquote Männer"
+    },
+    {
+        "code": "ai2202",
+        "label": "Grundsicherungsquote wegen Erwerbsminderung"
+    },
+    {
+        "code": "steu05",
+        "label": "Grundsteuer A - Grundbetrag"
+    },
+    {
+        "code": "stenw1",
+        "label": "Grundsteuer A - Hebesatz"
+    },
+    {
+        "code": "steu02",
+        "label": "Grundsteuer A - Istaufkommen"
+    },
+    {
+        "code": "steu06",
+        "label": "Grundsteuer B - Grundbetrag"
+    },
+    {
+        "code": "stenw2",
+        "label": "Grundsteuer B - Hebesatz"
+    },
+    {
+        "code": "steu03",
+        "label": "Grundsteuer B - Istaufkommen"
+    },
+    {
+        "code": "wahl04",
+        "label": "Gültige Stimmen"
+    },
+    {
+        "code": "wahl09",
+        "label": "Gültige Zweitstimmen"
+    },
+    {
+        "code": "unt019",
+        "label": "Handwerksunternehmen"
+    },
+    {
+        "code": "ges043",
+        "label": "hauptamtl. Ärzte mit abg. Weiterb. in Vors./Reha"
+    },
+    {
+        "code": "ges033",
+        "label": "hauptamtliche Ärzte in Krankenhäusern"
+    },
+    {
+        "code": "ges042",
+        "label": "hauptamtliche Ärzte in Vorsorge/Reha-Einrichtungen"
+    },
+    {
+        "code": "ges034",
+        "label": "hauptamtliche Ärzte mit abg. Weiterb. in Krankenh."
+    },
+    {
+        "code": "was006",
+        "label": "Hausbrunnen oder Quellen mit Trinkwassergewinnung"
+    },
+    {
+        "code": "wgs011",
+        "label": "Haushalte mit allgemeinem Wohngeld"
+    },
+    {
+        "code": "wgs001",
+        "label": "Haushalte mit allgemeinem Wohngeld"
+    },
+    {
+        "code": "ai1901",
+        "label": "Haushaltsabfälle je Einwohner"
+    },
+    {
+        "code": "wasnw0",
+        "label": "häusliches und betriebliches Schmutzwasser"
+    },
+    {
+        "code": "vbr017",
+        "label": "Heizölverbrauch"
+    },
+    {
+        "code": "ert001",
+        "label": "Hektarerträge"
+    },
+    {
+        "code": "ai0713",
+        "label": "Index Beschäftigtenquote"
+    },
+    {
+        "code": "ai2205",
+        "label": "Index Grundsicherungsquote"
+    },
+    {
+        "code": "isv001",
+        "label": "Insolvenzverfahren"
+    },
+    {
+        "code": "isv007",
+        "label": "Insolvenzverfahren (übrige Schuldner)"
+    },
+    {
+        "code": "isv006",
+        "label": "Insolvenzverfahren (Unternehmen)"
+    },
+    {
+        "code": "isv004",
+        "label": "Insolvenzverfahren (Verbraucher)"
+    },
+    {
+        "code": "inv001",
+        "label": "Investitionen"
+    },
+    {
+        "code": "ai1001",
+        "label": "Investitionen je Beschäftigten"
+    },
+    {
+        "code": "wasnw6",
+        "label": "Jahresabwassermenge"
+    },
+    {
+        "code": "bau003",
+        "label": "Kaufsumme"
+    },
+    {
+        "code": "kind02",
+        "label": "Kinder, Herkunft mind. 1 Elternteil ausländisch"
+    },
+    {
+        "code": "ai2107",
+        "label": "Kinder mit Bezug von Sozialgeld"
+    },
+    {
+        "code": "kind03",
+        "label": "Kinder mit Mittagsverpflegung"
+    },
+    {
+        "code": "pers02",
+        "label": "Kindertagespflegepersonen"
+    },
+    {
+        "code": "vbr012",
+        "label": "Kohleverbrauch"
+    },
+    {
+        "code": "ver012",
+        "label": "Kraftfahrzeugbestand"
+    },
+    {
+        "code": "ai1401",
+        "label": "Krankenhausbettendichte (Betten je 1.000 Einw.)"
+    },
+    {
+        "code": "ges024",
+        "label": "Krankenhäuser"
+    },
+    {
+        "code": "ges054",
+        "label": "Krankenhäuser"
+    },
+    {
+        "code": "ges029",
+        "label": "Krankenhäuser: aufgestellte Betten (JD)"
+    },
+    {
+        "code": "btr010",
+        "label": "Landwirtschaftliche Betriebe"
+    },
+    {
+        "code": "btr011",
+        "label": "Landwirtschaftliche Betriebe (Einzelunternehmen)"
+    },
+    {
+        "code": "btr038",
+        "label": "Landwirtschaftliche Betriebe mit 100 u.m. GV"
+    },
+    {
+        "code": "betr09",
+        "label": "Landwirtschaftliche Betriebe mit Ackerland"
+    },
+    {
+        "code": "betr08",
+        "label": "Landwirtschaftliche Betriebe mit Tierhaltung"
+    },
+    {
+        "code": "btr034",
+        "label": "Landwirtschaftliche Betriebe mit Viehhaltung"
+    },
+    {
+        "code": "flc017",
+        "label": "Landwirtschaftlich genutzte Fläche"
+    },
+    {
+        "code": "btr030",
+        "label": "Landwirtsch. Betriebe mit ökologischem Landbau"
+    },
+    {
+        "code": "wasnw9",
+        "label": "Länge des Kanalnetzes"
+    },
+    {
+        "code": "bev001",
+        "label": "Lebend Geborene"
+    },
+    {
+        "code": "ai0209",
+        "label": "Lebendgeborene je 10.000 Einwohner"
+    },
+    {
+        "code": "esgb12",
+        "label": "Leistungsempfänger"
+    },
+    {
+        "code": "flc048",
+        "label": "LF in Betrieben mit ökologischem Landbau"
+    },
+    {
+        "code": "lsnw02",
+        "label": "Lohn- und Einkommensteuer"
+    },
+    {
+        "code": "lsnw01",
+        "label": "Lohn- und Einkommensteuerpflichtige"
+    },
+    {
+        "code": "ai2001",
+        "label": "Mindestsicherungsquote"
+    },
+    {
+        "code": "ai2101",
+        "label": "Mindestsicherungsquote Ausländer"
+    },
+    {
+        "code": "pfl022",
+        "label": "nachrichtlich: teilstationäre Pflege"
+    },
+    {
+        "code": "ausnw4",
+        "label": "Nettoausgaben der Gemeinden"
+    },
+    {
+        "code": "ausnw2",
+        "label": "Nettoausgaben der Kreise"
+    },
+    {
+        "code": "ai1703",
+        "label": "Nominales BIP je Einwohner"
+    },
+    {
+        "code": "ai1701",
+        "label": "Nominales BIP je Erwerbstätigen"
+    },
+    {
+        "code": "flc002",
+        "label": "Nutzfläche (NF)"
+    },
+    {
+        "code": "flc047",
+        "label": "Ökologisch bewirtschaftete LF"
+    },
+    {
+        "code": "ai0904",
+        "label": "Ökologischer Landbau"
+    },
+    {
+        "code": "etg009",
+        "label": "Pachtentgelt je ha"
+    },
+    {
+        "code": "pers01",
+        "label": "Pädagog.,Leitungs-u.Verwaltg.personal i.Kita.einr."
+    },
+    {
+        "code": "ges028",
+        "label": "Patientenabgang einschl. Sterbefälle -in Krankenh."
+    },
+    {
+        "code": "ges037",
+        "label": "Patientenabgang m.Sterbefällen in Vors./Reha-Einr."
+    },
+    {
+        "code": "ges027",
+        "label": "Patientenzugang in Krankenhäusern"
+    },
+    {
+        "code": "ges036",
+        "label": "Patientenzugang in Vors./Reha-Einrichtungen"
+    },
+    {
+        "code": "pen088",
+        "label": "Pendlersaldo (über Gemeindegrenze)"
+    },
+    {
+        "code": "pen099",
+        "label": "Pendlersaldo (über Kreisgrenze)"
+    },
+    {
+        "code": "pen079",
+        "label": "Pendlersaldo (über Landesgrenze)"
+    },
+    {
+        "code": "pfl014",
+        "label": "Personal der Pflegedienste"
+    },
+    {
+        "code": "pfl004",
+        "label": "Personal der Pflegeheime"
+    },
+    {
+        "code": "ges032",
+        "label": "Personal im Pflegedienst in Krankenhäusern"
+    },
+    {
+        "code": "ges041",
+        "label": "Personal im Pflegedienst in Vors./Reha-Einrichtung"
+    },
+    {
+        "code": "ai1404",
+        "label": "Personal je 100 Pflegebedürftige in ambul.Pflege"
+    },
+    {
+        "code": "ai1403",
+        "label": "Personal je 100 Pflegebedürftige in stat. Pflege"
+    },
+    {
+        "code": "per099",
+        "label": "Personen in Bedarfsgemeinschaften"
+    },
+    {
+        "code": "pfl020",
+        "label": "Pflegebed.d.Pflegeheime vollstat. Kurzzeitpflege"
+    },
+    {
+        "code": "pfl019",
+        "label": "Pflegebedürft.d.Pflegeheime Dauerpflege, vollstat."
+    },
+    {
+        "code": "pfl011",
+        "label": "Pflegebedürft.d.Pflegeheime m.vollstat.Dauerpflege"
+    },
+    {
+        "code": "pfl016",
+        "label": "Pflegebedürftige"
+    },
+    {
+        "code": "pfl001",
+        "label": "Pflegebedürftige"
+    },
+    {
+        "code": "pfl006",
+        "label": "Pflegebedürftige der Pflegeheime"
+    },
+    {
+        "code": "pfl012",
+        "label": "Pflegebedürftige der Pflegeheime m.Kurzzeitpflege"
+    },
+    {
+        "code": "pfl013",
+        "label": "Pflegebedürftige der Pflegeheime m.teilstat.Pflege"
+    },
+    {
+        "code": "pfl018",
+        "label": "Pflegebedürftige der Pflegeheime, vollstationär"
+    },
+    {
+        "code": "ai1402",
+        "label": "Pflegebedürftige je 1.000 Einwohner ab 65 Jahre"
+    },
+    {
+        "code": "pfl008",
+        "label": "Pflegedienste"
+    },
+    {
+        "code": "pfl007",
+        "label": "Pflegegeldempfänger"
+    },
+    {
+        "code": "pfl021",
+        "label": "Pflegegeldempfänger"
+    },
+    {
+        "code": "pfl009",
+        "label": "Pflegeheime"
+    },
+    {
+        "code": "ai1301",
+        "label": "Pkw je 1.000 Einwohner"
+    },
+    {
+        "code": "ai1405",
+        "label": "Plätze in Pflegeheimen je 1.000 Einw. ab 65 Jahre"
+    },
+    {
+        "code": "rme009",
+        "label": "Räume in Wohnungen mit 7 oder mehr Räumen"
+    },
+    {
+        "code": "rzvpb1",
+        "label": "Rechn.Zahl d.Vollzeitstellen i.pädagogisch.Bereich"
+    },
+    {
+        "code": "rle001",
+        "label": "Regelleistungsempfänger"
+    },
+    {
+        "code": "ai0902",
+        "label": "Rinder je 100 ha landwirtschaftl. genutzter Fläche"
+    },
+    {
+        "code": "slnw01",
+        "label": "Schulden der Gemeinden und Gemeindeverbände"
+    },
+    {
+        "code": "slnw02",
+        "label": "Schulden der Gemeinden und GV am Kreditmarkt"
+    },
+    {
+        "code": "slnw04",
+        "label": "Schulden der kommunalen Krankenhäuser"
+    },
+    {
+        "code": "slnw03",
+        "label": "Schulden der rechtl. unselbst. Einrichtungen"
+    },
+    {
+        "code": "sld013",
+        "label": "Schuldenstand d.Kernhaush.d.Gemeinden u.-verbände"
+    },
+    {
+        "code": "sld012",
+        "label": "Schuldenst.d.Kernhh.d.Gem.u.-verb.je Einw.a.30.06."
+    },
+    {
+        "code": "bil003",
+        "label": "Schüler(innen) an allgemein bildenden Schulen"
+    },
+    {
+        "code": "bil004",
+        "label": "Schüler(innen) an beruflichen Schulen"
+    },
+    {
+        "code": "ai0903",
+        "label": "Schweine je 100 ha landwirtschaftl. genutz. Fläche"
+    },
+    {
+        "code": "ver005",
+        "label": "Schwerwiegende Unfälle mit Sachschäden i.e.S."
+    },
+    {
+        "code": "ai2103",
+        "label": "SGB II Frauen"
+    },
+    {
+        "code": "ai2102",
+        "label": "SGB II-Quote bis 64 Jahre"
+    },
+    {
+        "code": "ver006",
+        "label": "Sons.Sachschadensunf.unter d.Einfl.berausch.Mittel"
+    },
+    {
+        "code": "erw032",
+        "label": "Sozialversicherungspfl. Beschäftigte (Arbeitsort)"
+    },
+    {
+        "code": "erw033",
+        "label": "Sozialversicherungspfl. Beschäftigte (Wohnort)"
+    },
+    {
+        "code": "hwtp02",
+        "label": "sozialversicherungspflichtig Beschäftigte"
+    },
+    {
+        "code": "ums031",
+        "label": "Steuerbarer Umsatz für Lieferungen und Leistungen"
+    },
+    {
+        "code": "ai0601",
+        "label": "Stimmenanteil CDU/CSU, Europawahl"
+    },
+    {
+        "code": "ai0605",
+        "label": "Stimmenanteil DIE LINKE, Europawahl"
+    },
+    {
+        "code": "ai0603",
+        "label": "Stimmenanteil FDP, Europawahl"
+    },
+    {
+        "code": "ai0604",
+        "label": "Stimmenanteil GRÜNE, Europawahl"
+    },
+    {
+        "code": "ai0602",
+        "label": "Stimmenanteil SPD, Europawahl"
+    },
+    {
+        "code": "ai1302",
+        "label": "Straßenverkehrsunfälle je 10.000 Einwohner"
+    },
+    {
+        "code": "ai1303",
+        "label": "Straßenverkehrsunfälle je 10.000 Kfz"
+    },
+    {
+        "code": "vbr005",
+        "label": "Stromverbrauch"
+    },
+    {
+        "code": "kin002",
+        "label": "Tageseinrichtungen für Kinder"
+    },
+    {
+        "code": "per005",
+        "label": "Tätige Personen"
+    },
+    {
+        "code": "hwtp01",
+        "label": "Tätige Personen insgesamt"
+    },
+    {
+        "code": "hwtp04",
+        "label": "Tätige Personen je Unternehmen"
+    },
+    {
+        "code": "tie001",
+        "label": "Tierbestand"
+    },
+    {
+        "code": "tie003",
+        "label": "Tiere"
+    },
+    {
+        "code": "trm001",
+        "label": "Trockenmasse a.Abwasserbeh.-anl.dir.ents.Klärschl."
+    },
+    {
+        "code": "wasnw4",
+        "label": "Trockenmasse des entsorgten Klärschlamms"
+    },
+    {
+        "code": "ai1202",
+        "label": "Übernachtungen je Einwohner"
+    },
+    {
+        "code": "ums002",
+        "label": "Umsatz"
+    },
+    {
+        "code": "hwum01",
+        "label": "Umsatz insgesamt"
+    },
+    {
+        "code": "hwum02",
+        "label": "Umsatz je tätige Person"
+    },
+    {
+        "code": "str007",
+        "label": "Umsatzsteuerpflichtige"
+    },
+    {
+        "code": "ver001",
+        "label": "Unfälle (insgesamt)"
+    },
+    {
+        "code": "ver002",
+        "label": "Unfälle mit Personenschaden"
+    },
+    {
+        "code": "ai0402",
+        "label": "Unternehmensinsolvenzen je 10.000 st.-pfl. Untern."
+    },
+    {
+        "code": "ai1702",
+        "label": "Veränderung des nominalen BIP zum Vorjahr"
+    },
+    {
+        "code": "bau002",
+        "label": "Veräußerte Baulandfläche"
+    },
+    {
+        "code": "bau001",
+        "label": "Veräußerungsfälle von Bauland"
+    },
+    {
+        "code": "plz001",
+        "label": "Verfügbare Plätze"
+    },
+    {
+        "code": "pfl003",
+        "label": "Verfügbare Plätze in Pflegeheimen"
+    },
+    {
+        "code": "pfl010",
+        "label": "Verfügbare Plätze i.Pflegeh.m.vollstat.Dauerpflege"
+    },
+    {
+        "code": "ekm006",
+        "label": "verfügbares Einkommen der privaten Haushalte"
+    },
+    {
+        "code": "ai1601",
+        "label": "Verfügbares Einkommen je Einwohner"
+    },
+    {
+        "code": "ekm014",
+        "label": "verfüg. Einkommen der priv. Haushalte je Einwohner"
+    },
+    {
+        "code": "ai1305",
+        "label": "Verletzte bei Straßenverkehrsunfällen je 100.000EW"
+    },
+    {
+        "code": "ver019",
+        "label": "Verletzte Personen"
+    },
+    {
+        "code": "vie003",
+        "label": "Viehbestand"
+    },
+    {
+        "code": "for001",
+        "label": "voraussichtliche Forderungen"
+    },
+    {
+        "code": "for002",
+        "label": "voraussichtliche Forderungen (Unternehmen)"
+    },
+    {
+        "code": "for004",
+        "label": "voraussichtliche Forderungen (Verbraucher)"
+    },
+    {
+        "code": "ges035",
+        "label": "Vorsorge- oder Rehabilitationseinrichtungen"
+    },
+    {
+        "code": "ges065",
+        "label": "Vorsorge- oder Rehabilitationseinrichtungen"
+    },
+    {
+        "code": "ges038",
+        "label": "Vors./Rehaeinrichtungen: aufgestellte Betten (JD)"
+    },
+    {
+        "code": "wahl01",
+        "label": "Wahlberechtigte"
+    },
+    {
+        "code": "wahlsr",
+        "label": "Wahlbeteiligung"
+    },
+    {
+        "code": "ai0506",
+        "label": "Wahlbeteiligung, Bundestagswahl"
+    },
+    {
+        "code": "ai0606",
+        "label": "Wahlbeteiligung, Europawahl"
+    },
+    {
+        "code": "ai0212",
+        "label": "Wanderungssaldo je 10.000 Einwohner"
+    },
+    {
+        "code": "ai0214",
+        "label": "Wanderungssaldo je 10.000: Frauen 18 bis 29 Jahre"
+    },
+    {
+        "code": "ai0213",
+        "label": "Wanderungssaldo je 10 000: Männer 18 bis 29 Jahre"
+    },
+    {
+        "code": "was007",
+        "label": "Wasserabgabe an Letztverbraucher"
+    },
+    {
+        "code": "was008",
+        "label": "Wasserabgabe je Einwohner und Tag (in Liter)"
+    },
+    {
+        "code": "was001",
+        "label": "Wasseraufkommen"
+    },
+    {
+        "code": "was004",
+        "label": "Wassergewinnung"
+    },
+    {
+        "code": "was003",
+        "label": "Wassergewinnungsanlagen"
+    },
+    {
+        "code": "was002",
+        "label": "Wasserversorgungsunternehmen"
+    },
+    {
+        "code": "flc001",
+        "label": "Wohnfläche in Wohngebäuden"
+    },
+    {
+        "code": "flcnw1",
+        "label": "Wohnfläche in Wohngebäuden"
+    },
+    {
+        "code": "bau009",
+        "label": "Wohngebäude"
+    },
+    {
+        "code": "wohn02",
+        "label": "Wohnungen"
+    },
+    {
+        "code": "wohn01",
+        "label": "Wohnungen"
+    },
+    {
+        "code": "gem001",
+        "label": "Zahl der Gemeinden"
+    },
+    {
+        "code": "bev083",
+        "label": "Zuzüge aus dem Ausland über die Gemeindegrenzen"
+    },
+    {
+        "code": "bev081",
+        "label": "Zuzüge über die Gemeindegrenzen"
+    },
+    {
+        "code": "bev085",
+        "label": "Zuzüge über die Kreisgrenzen"
+    },
+    {
+        "code": "ai0501",
+        "label": "Zweitstimmenanteil CDU/CSU, Bundestagswahl"
+    },
+    {
+        "code": "ai0505",
+        "label": "Zweitstimmenanteil DIE LINKE, Bundestagswahl"
+    },
+    {
+        "code": "ai0503",
+        "label": "Zweitstimmenanteil FDP, Bundestagswahl"
+    },
+    {
+        "code": "ai0504",
+        "label": "Zweitstimmenanteil GRÜNE, Bundestagswahl"
+    },
+    {
+        "code": "ai0502",
+        "label": "Zweitstimmenanteil SPD, Bundestagswahl"
+    }
+]
