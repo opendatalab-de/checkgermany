@@ -64,12 +64,6 @@ select {
   .germap {
     width: 100%;
   }
-  .maplegend {
-    transform: rotate(90deg);
-    margin-left: auto;
-    margin-right: auto;
-    width: 220px;
-  }
 }
 text {
   font: 10px sans-serif;
