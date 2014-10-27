@@ -18,13 +18,20 @@
             relation: null
         };
         $scope.styleOptions = {
-            form: 'bubbles'
+            form: 'map'
         };
         $scope.cube = {
             data: null
         };
         $scope.viewFilter = {
             rs: null
+        };
+
+        $scope.showMap = function () {
+            $scope.styleOptions.form = 'map';
+        };
+        $scope.showBubbles = function () {
+            $scope.styleOptions.form = 'bubbles';
         };
     });
 })(angular, app);

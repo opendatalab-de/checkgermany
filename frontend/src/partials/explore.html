@@ -8,24 +8,29 @@
                 <topic-selection></topic-selection>
             </p>
             <p>
-            <level-selection></level-selection>
+                <level-selection></level-selection>
             </p>
             <hr/>
             <p>
                 <cube-config></cube-config>
             </p>
         </div>
+        <div class="col-sm-12 buttoncontainer">
+            <div class="col-sm-4"><img src="img/button_1.png" ng-click="showMap()"></div>
+            <div class="col-sm-4"><img src="img/button_2.png" ng-click="showBubbles()"></div>
+            <div class="col-sm-4 embedded"><img src="img/button_3.png"></div>
+        </div>
+        <div class="clearfix"></div>
+        <p><br/></p>
+
         <div class="col-sm-12 maplegend">
             <img src="/img/legende_germany.jpg" alt="Kartenlegende">
         </div>
-        <div class="clearfix"></div>
-        <div class="col-sm-12 buttoncontainer">
-            <div class="col-sm-4"><img src="img/button_1.png"></div>
-            <div class="col-sm-4"><img src="img/button_2.png"></div>
-            <div class="col-sm-4 embedded"><img src="img/button_3.png"></div>
-        </div>
     </div>
-    <div class="col-sm-9 germap">
+    <div class="col-sm-9 germap" ng-show="styleOptions.form=='map'">
         <map></map>
+    </div>
+    <div class="col-sm-9 germap" ng-show="styleOptions.form=='bubbles'">
+        <cube-pack></cube-pack>
     </div>
 </div>
