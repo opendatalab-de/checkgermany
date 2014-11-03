@@ -1,15 +1,13 @@
 (function (angular, app) {
     'use strict';
 
-    angular.module('app.explore').directive('cubePack', function ($http) {
+    angular.module('app.explore').directive('cartogram', function () {
         return {
             restrict: 'E',
             template: '<svg style="height:960px;width:960px;"></svg>',
             replace: true,
             link: function (scope, element) {
                 var svg = d3.select(element[0])
-                    .attr("width", 960)
-                    .attr("height", 960)
                     .attr("viewBox", "0 0 " + 960 + " " + 960)
                     .attr("class", "bubble");
 
@@ -39,7 +37,7 @@
                         {name: "Natural Increase Rate", id: "natincrate", key: "RNATURALINC%d", years: [2011], format: percent},
                         {name: "Int'l Migration Rate", id: "intlmigrate", key: "RINTERNATIONALMIG%d", years: [2011], format: percent},
                         {name: "Net Domestic Migration Rate", id: "domesticmigrate", key: "RDOMESTICMIG%d", years: [2011], format: percent},
-                        {name: "Net Migration Rate", id: "netmigrate", key: "RNETMIG%d", years: [2011], format: percent},
+                        {name: "Net Migration Rate", id: "netmigrate", key: "RNETMIG%d", years: [2011], format: percent}
                     ],
                     years = [2010, 2011],
                     fieldsById = d3.nest()
@@ -62,7 +60,7 @@
                     stat = d3.select("#status");
 
                 var fieldSelect = d3.select("#field")
-                    .on("change", function (e) {
+                    .on("change", function () {
                         field = fields[this.selectedIndex];
                     });
 
@@ -78,7 +76,7 @@
                     });
 
                 var yearSelect = d3.select("#year")
-                    .on("change", function (e) {
+                    .on("change", function () {
                         year = years[this.selectedIndex];
                     });
 
@@ -91,7 +89,7 @@
                     })
                     .text(function (y) {
                         return y;
-                    })
+                    });
 
                 var map = svg,
                     zoom = d3.behavior.zoom()
@@ -254,7 +252,6 @@
                 var deferredUpdate = (function () {
                     var timeout;
                     return function () {
-                        var args = arguments;
                         clearTimeout(timeout);
                         stat.text("calculating...");
                         return timeout = setTimeout(function () {
