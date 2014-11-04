@@ -20,7 +20,7 @@
         numberFormatter: null,
         init: function () {
             this.leafletMap = L.map('map', {
-                center: [49.165691, 10.451526],
+                center: [50.665691, 10.451526],
                 zoom: 7,
                 minZoom: 5,
                 maxZoom: 12
@@ -204,20 +204,25 @@
             link: function (scope, element) {
                 map.numberFormatter = $filter('number');
                 map.init();
-                var areaLayerInitialized = false
+                var areaLayerInitialized = false;
                 var lastDataJob = null;
-                scope.$watch('cubeFilter.level', function (level) {
+                var updateAreas = function (successCallback) {
+                    if (scope.styleOptions.form !== 'map') return false;
                     areaLayerInitialized = false;
                     var onSuccess = function () {
                         areaLayerInitialized = true;
                         if (lastDataJob) {
                             lastDataJob();
                         }
+                        if (successCallback) {
+                            successCallback();
+                        }
                     };
-                    map.addAreaLayer(level, onSuccess);
-                });
+                    map.addAreaLayer(scope.cubeFilter.level, onSuccess);
+                };
 
                 var updateData = function () {
+                    if (scope.styleOptions.form !== 'map') return false;
                     var updateMap = function () {
                         lastDataJob = null;
                         map.addData(scope.cube.data, scope.cubeConfig, scope.cubeFilter);
@@ -228,6 +233,14 @@
                         lastDataJob = updateMap;
                     }
                 };
+
+                var update = function () {
+                    if (scope.styleOptions.form !== 'map') return false;
+                    updateAreas(updateData);
+                };
+
+                scope.$watch('styleOptions.form', update);
+                scope.$watch('cubeFilter.level', updateAreas);
                 scope.$watch('cube.data', updateData);
                 scope.$watch('cubeConfig.relation', updateData);
             }
