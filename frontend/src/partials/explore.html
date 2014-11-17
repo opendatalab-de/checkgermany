@@ -1,7 +1,7 @@
-<div class="row">
-    <div class="col-sm-4 col-md-4">
+<div class="row" style="height:100%">
+    <div class="col-sm-4 col-md-4" style="height:100%;overflow-y:auto;">
         <div class="jumbotron">
-            <h1><strong>check:</strong>germany</h1>
+            <h1><strong>check:</strong>germany [Alpha]</h1>
         </div>
         <div class="mapselection col-sm-12 col-xs-12">
             <p>
@@ -15,7 +15,7 @@
                 <cube-config></cube-config>
             </p>
         </div>
-        <div class="col-sm-12 buttoncontainer">
+        <div class="buttoncontainer">
             <div class="col-sm-4"><img src="img/button_1.png" ng-click="showMap()"></div>
             <div class="col-sm-4"><img src="img/button_2.png" ng-click="showBubbles()"></div>
             <div class="col-sm-4 embedded"><img src="img/button_3.png"></div>
@@ -23,8 +23,125 @@
         <div class="clearfix"></div>
         <p><br/></p>
 
-        <div class="col-sm-12 maplegend">
-            <img src="/img/legende_germany.jpg" alt="Kartenlegende">
+        <div style="text-align:center">
+            <a data-toggle="modal" data-target="#about">Über</a> | <a data-toggle="modal" data-target="#team">Team</a>
+        </div>
+
+        <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="Über" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                                class="sr-only">Schließen</span></button>
+                        <h4 class="modal-title" id="aboutLabel">Über Check:Germany</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Wenn Journalisten nach offiziellen Daten aus Deutschland suchen, ist das Statische Bundesamt
+                            mit seinen Webseiten wie destatis.de oder regionalstatistik.de ihre erste Anlaufstelle.
+                            Allerdings bieten diese Seiten keine Möglichkeit, die Daten zu visualisieren. Die
+                            Journalisten müssen die Rohdaten zuerst herunterladen und mit einem anderen Tool
+                            weiterverarbeiten, um sie analysieren und verstehen zu können.</p>
+
+                        <p>Check:Germany vereint diese beiden Schritte auf einer übersichtlichen und selbsterklärenden
+                            Webseite.</p>
+
+                        <p>Das Tool verfügt über eine Schnittstelle zur Regionaldatenstatistik-Datenbank (indirekt über
+                            <a href="http://regenesis.pudo.org">http://regenesis.pudo.org</a>). Die Arbeitsschritte im
+                            Einzelnen:</p>
+                        <ul>
+                            <li>1. Anhand eines Dropdown-Menüs wählt der Journalist zunächst ein Themengebiet (z.B.
+                                Bevölkerung) aus
+                            </li>
+                            <li>2. danach wählt er einen speziellen Datensatz (z.B. Geburtenrate) aus</li>
+                            <li>3. er wählt ein Gebiet (z.B. Bayern) aus: Die Daten können bis auf die kleinste
+                                kommunale Einheit dargestellt werden. Dies bietet vor allem für Lokaljournalisten eine
+                                unglaublich große Fundgrube an Themen und Geschichten.
+                            </li>
+                            <li>4. checkgermany.de generiert aus diesen Parametern zwei Visualisierungen:
+                                <ul>
+                                    <li>a.) eine Karte, die je nach Ausprägung des gewählten Wertes unterschiedlich
+                                        stark eingefärbt ist.
+                                    </li>
+                                    <li>b.) eine Bubble-Map, die sich vom geographischen Ansatz löst, und die Daten in
+                                        Kreisen darstellt, die je nach Höhe des Wertes unterschiedlich groß dargestellt
+                                        werden. Dadurch entsteht ein ganz neues Bild von Deutschland.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <p>Die Innovationen von Check:Germany:</p>
+
+                        <p>RECHERCHE + VISUALISIERUNG<br>
+                            Journalisten können mit Hilfe von Check:Germany in mehreren hundert Datensätzen
+                            recherchieren und auf einer visuellen Ebene öffentliche Daten analysieren, verstehen und so
+                            neue Ansatzpunkte für Geschichten finden.</p>
+
+                        <p>EMBED<br>
+                            Journalisten können die generierten Karten mit Hilfe eines Embed-Codes in ihre eigene
+                            Webseite einbetten und damit die datenjournalistische Visualisierung in die
+                            Berichterstattung integrieren. Auch interessierte Nutzer können die vom Journalisten
+                            erstellen Karten einbetten.</p>
+
+                        <p>BUBBLE MAP<br>
+                            Die Bubble-Karte ist ein Experiment, um Proportionen und Größen leichter erfassbar zu
+                            machen. Die Werte werden nicht in einer Farbskala ausgegeben, sondern in proportional großen
+                            Kreisen.</p>
+
+                        <hr>
+
+                        <p>MORE TO COME:<br>
+                            Das Team von Check:Germany plant, das Tool auszubauen, um Journalisten und Usern noch mehr
+                            Funktionen anbieten zu können.</p>
+
+                        <p>BENCHMARKS ALS CHARTS<br>
+                            Automatisches Anzeigen der Benchmark-Werte (Vergleich mit den Ausreißern nach oben und
+                            unten, mit dem Durchschnitt, mit dem Median), Darstellung als "Small Multiples" - kleine
+                            Charts innerhalb der Map.</p>
+
+                        <p>KACHELN STATT BUBBLES<br>
+                            Noch besser als Bubbles eignen sich Kacheln, um Größenverhältnisse darzustellen. Das wäre
+                            die nächste Ausbaustufe.</p>
+
+                        <p>DEUTSCHLAND-KARTE AUS KACHELN<br>
+                            Ein weiteres Ziel ist es, die Kacheln auch am geographisch korrekten Ort anzuzeigen - und
+                            damit eine Deutschland-Karte entstehen zu lassen, die sich aus Flächen zusammensetzt, die je
+                            nach ausgesuchtem Wert unterschiedlich groß sind.</p>
+
+                        <p>MOBILE<br>
+                            Optimierung der mobilen Darstellung der Embed-Karten.</p>
+
+                        <p>RECHERCHE<br>
+                            Weiterentwicklung der Recherchefunktionen, damit Journalisten gezielter nach Daten suchen
+                            können.</p>
+
+                        <p>GITHUB: <a
+                                href="https://github.com/opendatalab-de/checkgermany">opendatalab-de/checkgermany</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="team" tabindex="-1" role="dialog" aria-labelledby="Team" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                                class="sr-only">Schließen</span></button>
+                        <h4 class="modal-title" id="teamLabel">Team</h4>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="list-unstyled">
+                            <li>Vanessa Wormer (<a href="https://twitter.com/remrow">@remrow</a>)</li>
+                            <li>Bernd Oswald (<a href="https://twitter.com/berndoswald">@berndoswald</a>)</li>
+                            <li>Pascal Gabriel (<a href="https://twitter.com/pascalgabriel">@pascalgabriel</a>)</li>
+                            <li>Felix Ebert (<a href="https://twitter.com/femeb">@femeb</a>)</li>
+                            <li>Felix Geelhaar (<a href="https://twitter.com/felixgeelhaar">@felixgeelhaar</a>)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="col-sm-9 germap" ng-show="styleOptions.form=='map'">
