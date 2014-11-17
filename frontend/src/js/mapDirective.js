@@ -196,7 +196,7 @@
         }
     };
 
-    angular.module('app.explore').directive('map', function ($http, $filter) {
+    angular.module('app.explore').directive('map', function ($http, $filter, $q) {
         return {
             restrict: 'E',
             template: '<div id="map"></div>',
@@ -204,39 +204,39 @@
             link: function (scope, element) {
                 map.numberFormatter = $filter('number');
                 map.init();
-                var areaLayerInitialized = false;
-                var lastDataJob = null;
-                var updateAreas = function (successCallback) {
+                var areaPromise = null, dataPromise = null;
+
+                var updateAreas = function () {
                     if (scope.styleOptions.form !== 'map') return false;
-                    areaLayerInitialized = false;
-                    var onSuccess = function () {
-                        areaLayerInitialized = true;
-                        if (lastDataJob) {
-                            lastDataJob();
-                        }
-                        if (successCallback) {
-                            successCallback();
-                        }
-                    };
-                    map.addAreaLayer(scope.cubeFilter.level, onSuccess);
+                    areaPromise = $q(function (resolve, reject) {
+                        map.addAreaLayer(scope.cubeFilter.level, resolve);
+                    });
+                    return areaPromise;
                 };
 
                 var updateData = function () {
                     if (scope.styleOptions.form !== 'map') return false;
-                    var updateMap = function () {
-                        lastDataJob = null;
-                        map.addData(scope.cube.data, scope.cubeConfig, scope.cubeFilter);
-                    };
-                    if (areaLayerInitialized) {
-                        updateMap();
-                    } else {
-                        lastDataJob = updateMap;
-                    }
+                    var deferred = $q.defer();
+                    var i = 0;
+                    setTimeout(function () {
+                        i++;
+                        if (areaPromise != null) {
+                            areaPromise.then(function () {
+                                map.addData(scope.cube.data, scope.cubeConfig, scope.cubeFilter);
+                            });
+                            deferred.resolve();
+                        }
+                        if (i > 5) {
+                            deferred.reject();
+                        }
+                    }, 200);
+                    return deferred.promise;
                 };
 
                 var update = function () {
                     if (scope.styleOptions.form !== 'map') return false;
-                    updateAreas(updateData);
+                    updateAreas();
+                    updateData();
                 };
 
                 scope.$watch('styleOptions.form', update);

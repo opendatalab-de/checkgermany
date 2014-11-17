@@ -62,7 +62,9 @@
                 };
 
                 scope.$watch('styleOptions.form', update);
-                scope.$watch('cubeFilter.level', updateAreas);
+                scope.$watch('cubeFilter.level', function () {
+                    updateAreas();
+                });
                 scope.$watch('cube.data', updateData);
                 scope.$watch('cubeConfig.relation', updateData);
             }
