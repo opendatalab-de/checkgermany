@@ -1,9 +1,7 @@
 (function (app, d3, topojson) {
     'use strict';
 
-    var colors = ["#ffdf90", "#ffc32d", "#ff6600", "#ff2f01", "#c10100", "#8d0001", "#520000", "#24000b"].map(function (rgb) {
-        return d3.hsl(rgb);
-    });
+    var colors = ["#ffdf90", "#ffc32d", "#ff6600", "#ff2f01", "#c10100", "#8d0001", "#520000", "#24000b"];
 
     /* cartogram specific */
     app.cartogram = function (svgSelector) {
@@ -60,7 +58,7 @@
                 return data[d.properties.RS] ? data[d.properties.RS] : d3.mean(values);
             };
 
-            var color = d3.scale.linear()
+            var color = d3.scale.quantize()
                 .range(colors)
                 .domain(lo < 0 ? [lo, 0, hi] : [lo, d3.mean(values), hi]);
 
