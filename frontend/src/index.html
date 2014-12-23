@@ -6,32 +6,57 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- build:css css/app.min.css -->
-    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
-    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet"/>
+    <link href="bower_components/normalize.css/normalize.css" rel="stylesheet"/>
     <link href="bower_components/angular-loading-bar/build/loading-bar.css" rel="stylesheet"/>
+    <link href="bower_components/ngDialog/css/ngDialog.css" rel="stylesheet"/>
+    <link href="bower_components/ngDialog/css/ngDialog-theme-default.css" rel="stylesheet"/>
     <link href="bower_components/leaflet/dist/leaflet.css" rel="stylesheet"/>
     <link href="css/screen.css" rel="stylesheet"/>
     <!-- endbuild -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:100,400,500' rel='stylesheet' type='text/css'>
     <title>Check Germany</title>
 </head>
-<body data-ng-app="app">
+<body data-ng-app="app" ng-cloak ng-controller="ExploreCtrl">
+<div class="row">
+    <div class="cell cell-configuration">
+        <div class="configuration-container">
+            <div class="jumbotron configuration-box">
+                <h1><strong>check:</strong>germany [Alpha]</h1>
+            </div>
 
-<div class="container-fluid" style="height:100%">
-    <div data-ng-view style="height:100%"></div>
+            <div class="configuration-form configuration-box">
+                <topic-selection></topic-selection>
+                <level-selection></level-selection>
+                <hr/>
+                <cube-config></cube-config>
+
+                <div class="configuration-layout">
+                    <img src="img/button_1.png" ng-click="showMap()">
+                    <img src="img/button_2.png" ng-click="showBubbles()">
+                    <img src="img/button_3.png">
+                </div>
+            </div>
+
+            <div class="footer configuration-box">
+                <a ng-dialog="partials/about.html" ng-dialog-close-previous>Über</a> |
+                <a ng-dialog="partials/team.html" ng-dialog-close-previous>Team</a>
+            </div>
+        </div>
+    </div>
+    <div class="cell cell-preview">
+        <map ng-show="styleOptions.form=='map'"></map>
+        <cartogram ng-show="styleOptions.form=='bubbles'"></cartogram>
+    </div>
 </div>
 
 <!-- build:js js/app.min.js -->
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-i18n/angular-locale_de-de.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/ngDialog/js/ngDialog.js"></script>
 <script src="bower_components/d3/d3.js"></script>
 <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
 <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
 <script src="bower_components/leaflet-omnivore/leaflet-omnivore.js"></script>
-<script src="bower_components/leaflet-omnivore/leaflet-omnivore.js"></script>
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="lib/topojson.js"></script>
 <script src="lib/cartogram.js"></script>
 <script src="js/app.js"></script>

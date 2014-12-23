@@ -1,16 +1,18 @@
 <div ng-show="measures.length > 0">
     <p>
-        Messwert: <select ng-model="cubeConfig.measure" required
-                          ng-options="measure.label for measure in measures"></select>
+        <label for="measure">Messwert:</label>
+        <select id="measure" ng-model="cubeConfig.measure" required
+                ng-options="measure.label for measure in measures"></select>
     </p>
 
     <p>
-        Jahr: <select ng-model="cubeConfig.year" required ng-options="year.label for year in years"></select>
+        <label for="year">Jahr:</label>
+        <select id="year" ng-model="cubeConfig.year" required ng-options="year.label for year in years"></select>
     </p>
 
     <p>
-        In Verhältnis setzen zu:
-        <select ng-model="cubeConfig.relation" ng-options="relation.label for relation in relations">
+        <label for="relation">In Verhältnis setzen zu:</label>
+        <select id="relation" ng-model="cubeConfig.relation" ng-options="relation.label for relation in relations">
             <option value="">nichts (absoluter Wert)</option>
         </select>
     </p>
