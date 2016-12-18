@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="/"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- build:css css/app.min.css -->
+    <link href="../bower_components/normalize.css/normalize.css" rel="stylesheet"/>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css' rel='stylesheet'/>
+    <!-- endbuild -->
+    <style type="text/css">
+        body {
+            font-size: 14px;
+        }
+
+        .info {
+            padding: 6px 8px;
+            background: white;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            width: 300px;
+            max-width: 70vw;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+            white-space: pre-line;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+        .bottom-menu {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            display: flex;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .switch-button {
+            display: block;
+            background: #F0F0F0;
+            padding: 5px 10px;
+        }
+
+        .switch-button.active {
+            background: #08A92B;
+            cursor: auto;
+        }
+    </style>
+    <title>Check Germany</title>
+</head>
+<body>
+<div class="info" style="display:none;"></div>
+<div id="map" class="map" style="width: 100vw;height:100vh"></div>
+<nav class="bottom-menu">
+    <a class="switch-button switch-button-https active">HTTPS</a>
+    <a class="switch-button switch-button-cms">CMS</a>
+</nav>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js'></script>
+<script>
+    'use strict';
+    (function () {
+        var map = {
+            leafletMap: null,
+            areaLayer: null,
+            areaLayerMap: {},
+            numberFormatter: null,
+            init: function () {
+                mapboxgl.accessToken = 'pk.eyJ1IjoiY29kZWZvcmhlaWxicm9ubiIsImEiOiJaVW1RaEhzIn0.dTT9PWOqjBbzpw7S--GnAA';
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: {
+                        "version": 8,
+                        "sources": {
+                            "communes": {
+                                "type": "vector",
+                                "tiles": ["/tiles/communesweb/{z}/{x}/{y}.pbf"],
+                                "attribution": '<a href="http://www.geodatenzentrum.de/geodaten/gdz_rahmen.gdz_div?gdz_spr=deu&gdz_akt_zeile=5&gdz_anz_zeile=0&gdz_user_id=0">Geodatenzentrum</a> © GeoBasis-DE / BKG 2016, <a href="https://https.jetzt/">https.jetzt</a>, <a href="https://blog.opendatalab.de">opendatalab.de</a>'
+                            }
+                        },
+                        layers: [
+                            {
+                                "id": "background",
+                                "type": "background",
+                                "paint": {
+                                    "background-color": "#F0F0F0"
+                                }
+                            }, {
+                                "id": "https-color",
+                                "source": "communes",
+                                "source-layer": "communesgeojson",
+                                "type": "fill",
+                                "paint": {
+                                    "fill-color": {
+                                        property: 'https',
+                                        type: 'categorical',
+                                        stops: [
+                                            ['no', '#000000'],
+                                            ['yes', '#08A92B'],
+                                            ['yes-force', '#0CFF3E']
+                                        ]
+                                    },
+                                    "fill-outline-color": "#888888"
+                                }
+                            }, {
+                                "id": "cms-color",
+                                "source": "communes",
+                                "source-layer": "communesgeojson",
+                                "type": "fill",
+                                "layout": {
+                                    "visibility": "none"
+                                },
+                                "paint": {
+                                    "fill-color": {
+                                        property: 'generatorColor',
+                                        type: 'identity'
+                                    },
+                                    "fill-outline-color": "#888888"
+                                }
+                            }
+                        ]
+                    },
+                    center: [10.451526, 50.665691],
+                    zoom: 6,
+                    minZoom: 6,
+                    maxZoom: 12
+                });
+
+                var nav = new mapboxgl.NavigationControl();
+                map.addControl(nav, 'top-left');
+
+                var activeLayer = 'https-color';
+                var infoElement = document.querySelector('.info');
+                map.on('load', function () {
+                    map.on("mousemove", function (e) {
+                        var features = map.queryRenderedFeatures(e.point, {layers: [activeLayer]});
+                        if (features && features.length > 0) {
+                            var feature = features[0];
+
+                            var communeInfo = feature.properties.GEN;
+                            if (feature.properties.domain) communeInfo += ' - ' + feature.properties.domain;
+
+                            var httpsInfo = 'HTTPS: ';
+                            if (feature.properties.https == 'yes') httpsInfo += 'Ja';
+                            else if (feature.properties.https == 'yes-force') httpsInfo += 'Ja, wird erzwungen';
+                            else if (feature.properties.https == 'no') httpsInfo += 'Nein';
+                            else httpsInfo += 'unbekannt';
+
+                            var cmsInfo = "";
+                            if (feature.properties.generator) {
+                                cmsInfo = 'CMS: ' + feature.properties.generator;
+                            }
+
+                            infoElement.innerText = communeInfo + "\n" + httpsInfo + (cmsInfo ? "\n" + cmsInfo : '');
+                            infoElement.style.display = 'block';
+                        } else {
+                            infoElement.style.display = 'none';
+                        }
+                    });
+                });
+
+                map.on("mouseout", function () {
+                    infoElement.style.display = 'none';
+                });
+
+                var switchButtonHttps = document.querySelector('.switch-button-https');
+                var switchButtonCms = document.querySelector('.switch-button-cms');
+
+                switchButtonHttps.addEventListener('click', function () {
+                    map.setLayoutProperty('https-color', 'visibility', 'visible');
+                    map.setLayoutProperty('cms-color', 'visibility', 'none');
+                    switchButtonHttps.classList.add('active');
+                    switchButtonCms.classList.remove('active');
+                    activeLayer = 'https-color';
+                });
+                switchButtonCms.addEventListener('click', function () {
+                    map.setLayoutProperty('https-color', 'visibility', 'none');
+                    map.setLayoutProperty('cms-color', 'visibility', 'visible');
+                    switchButtonHttps.classList.remove('active');
+                    switchButtonCms.classList.add('active');
+                    activeLayer = 'cms-color';
+                });
+            }
+        };
+
+        map.init();
+    })();
+</script>
+</body>
+</html>
